@@ -1,7 +1,7 @@
 settings-grunt
 ==================
 
-Готовый надо для grunt.js
+Сборка grunt.js для проекта
 
 Иснтрукция по установке:
 
@@ -29,3 +29,5 @@ npm install grunt --save-dev
 ```
 grunt
 ```
+
+Правки по путям файлов вносятся в Gruntfile.js
