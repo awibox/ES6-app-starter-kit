@@ -1,0 +1,42 @@
+.progress {
+  height: @progressHeight;
+  position: relative;
+  margin-bottom: 20px;
+  &.rc .progress-unload,
+  &.rc .progress-load {
+    .border-radius(@progressRC);
+  }
+  .progress-unload {
+    -webkit-box-shadow: 0 1px 2px #e6e6e6 inset;
+    -moz-box-shadow: 0 1px 2px #e6e6e6 inset;
+    box-shadow: 0 1px 2px #e6e6e6 inset;
+    border: 1px solid;
+    border-color: @progressBorderColor;
+    height: @progressHeight;
+    background:@progressBG;
+    .box-sizing;
+  }
+  .progress-load {
+    background: @grey;
+    height: @progressHeight;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    max-width: 100%;
+  }
+  .progress-load-pct {
+    height: @progressHeight;
+    width: 100%;
+    line-height: @progressHeight;
+    text-align: center;
+    font-size: @progressFontSize;
+    font-weight: bold;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  &.green {.progress-load {background: @green;}}
+  &.red {.progress-load {background: @red;}}
+  &.blue {.progress-load {background: @blue;}}
+  &.yellow {.progress-load {background: @yellow;}}
+}

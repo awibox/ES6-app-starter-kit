@@ -1,0 +1,57 @@
+/* ---------- SETUP ---------- */
+@bodyFont:Arial, Tahoma, Verdana, sans-serif; // название шрифта.
+@bodyFontSize:14px; // размер шрифта
+@bodyFontLineHeight:20px; // межстрочный интервал
+@bodyColor:#111; // цвет текста на сайте
+@bodyBackground:#fff; // цвет фона сайта
+@bodyLinkColor:#1270b3; // цвет ссылок
+@bodyLinkColorHover:#1370b3; // цвет ссылок при наведении
+
+@siteWidth:960px; // ширина сайта, если сайт резиновый то указывать в процентах
+@siteMinWidth:0;  // минимальная ширина сайта
+@siteMaxWidth:1920px; // максимальная ширина сайта
+
+@columnIndent:2%; // отступы между колонками
+@defaultIndent:20px; // отступы между блоками
+@blockIndent:20px; // отступы внутри блоков
+
+@defaultBorder:1px; // обводка
+@indentP:15px; // отступ после абзаца <p>
+
+// эффекты
+@radius: 5px;
+@shadow-param: 0 2px 5px;
+@shadow-color: #b2b2b2;
+@text-shadow-param: 0 2px 5px;
+@text-shadow-color: #b2b2b2;
+
+// кнопки
+@buttonFontSize: 14px;
+@buttonBig:1.3;
+@buttonSmall:0.8;
+
+// прогресс-бар
+@progressHeight: 15px; // высота бара
+@progressFontSize: 11px; // размер шрифта
+@progressRC:4px; // закругление угов
+@progressBG: #fff; // цвет фона неактивной части (прозрачный фон - transparent)
+@progressBorderColor:#bbb #ccc;
+
+/* ---------- Import Main ---------- */
+
+@import "main";
+@import "color";
+@import "columns";
+
+/* ---------- Import Options ---------- */
+@import "indent";
+@import "text";
+@import "border";
+@import "btn";
+@import "nav";
+@import "form";
+@import "block";
+@import "section";
+@import "icon";
+@import "progress";
+@import "effect";
