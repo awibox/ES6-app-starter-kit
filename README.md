@@ -1,4 +1,4 @@
-settings-grunt
+grunt-settings
 ==================
 
 Сборка grunt.js для проекта
@@ -12,7 +12,7 @@ npm install -g grunt-cli
 
 2. Склонировать репозиторий
 ```
-git clone https://github.com/awibox/settings-grunt.git my-project
+git clone https://github.com/awibox/grunt-settings.git my-project
 ```
 
 3. Перейти в консоле в папку проектка
