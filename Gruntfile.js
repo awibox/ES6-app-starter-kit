@@ -6,30 +6,22 @@ module.exports = function (grunt) {
         jshint: {
             options: {
                 curly: true,
-                eqeqeq: true,
-                immed: true,
-                latedef: true,
-                newcap: true,
-                noarg: true,
-                sub: true,
-                undef: true,
                 eqnull: true,
-                browser: true,
+                eqeqeq: true,
+                undef: true,
                 globals: {
-                    jQuery: true,
-                    $: true,
-                    console: true
+                    jQuery: true
                 }
             },
             '<%= pkg.name %>': {
-                src: [ 'src/js/**/*.js' ]
+                src: [ 'assets/js/**/*.js' ]
             }
         },
 
         concat: {
             dist: {
-                src: ['src/js/*.js'],
-                dest: 'public/build.js'
+                src: ['assets/js/*.js'],
+                dest: 'public/js/build.js'
             }
         },
 
@@ -40,18 +32,18 @@ module.exports = function (grunt) {
             },
 
             build: {
-                src: 'public/build.js',
-                dest: 'public/build.min.js'
+                src: 'public/js/build.js',
+                dest: 'public/js/build.min.js'
             }
         },
 
         less: {
             development: {
                 options: {
-                    paths: ["src/css"]
+                    paths: ["assets/css"]
                 },
                 files: {
-                    "public/result.css": "src/less/skillmax.less"
+                    "public/css/style.css": "assets/less/style.less"
                 }
             }
         },
@@ -62,27 +54,26 @@ module.exports = function (grunt) {
                 },
 
                 files: {
-                    'public/style.min.css' : ['public/result.css']   // первая строка - output файл. массив из строк, какие файлы конкатенировать и минифицировать.
+                    'public/css/style.min.css' : ['public/css/style.css']   // первая строка - output файл. массив из строк, какие файлы конкатенировать и минифицировать.
                 }
             }
         },
 
         watch: {
             scripts: {
-                files: ['src/js/*.js'],
+                files: ['assets/js/*.js'],
                 tasks: ['concat', 'uglify', 'removelogging']
             },
             css: {
-                files: ['src/less/*.less'],
+                files: ['assets/less/*.less'],
                 tasks: ['less', 'cssmin']
             }
         },
 
-
         removelogging: {
             dist: {
-                src: "public/build.min.js",
-                dest: "public/build.clean.js"
+                src: "public/js/build.min.js",
+                dest: "public/js/build.clean.js"
             }
         }
     });
@@ -95,7 +86,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-remove-logging');
 
-    grunt.registerTask('default', ['concat', 'uglify', 'less', 'cssmin', 'removelogging', 'watch']);
+    grunt.registerTask('default', ['concat', 'uglify', 'less', 'cssmin', 'removelogging', 'watch', 'jshint']);
     grunt.registerTask('debug', ['jshint']);
 
 };
