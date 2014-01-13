@@ -1,14 +1,15 @@
 {
-  "name": "grunt-project",
-  "version": "0.1.0",
-  "devDependencies": {
-    "grunt": "~0.4.2",
-    "grunt-contrib-jshint": "latest",
-    "grunt-contrib-concat": "latest",
-    "grunt-contrib-uglify": "latest",
-    "grunt-contrib-less": "latest",
-    "grunt-contrib-cssmin" : "latest",
-    "grunt-contrib-watch": "latest",
-    "grunt-remove-logging": "latest"
-  }
+    "name": "grunt-project",
+    "version": "0.1.0",
+    "devDependencies": {
+        "grunt": "~0.4.2",
+        "grunt-contrib-jshint": "latest",
+        "grunt-contrib-concat": "latest",
+        "grunt-contrib-uglify": "latest",
+        "grunt-contrib-less": "latest",
+        "grunt-contrib-cssmin" : "latest",
+        "grunt-contrib-imagemin" : "latest",
+        "grunt-contrib-watch": "latest",
+        "grunt-remove-logging": "latest"
+    }
 }

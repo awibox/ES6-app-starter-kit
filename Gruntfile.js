@@ -21,7 +21,7 @@ module.exports = function (grunt) {
         concat: {
             dist: {
                 src: ['assets/js/*.js'],
-                dest: 'public/js/build.js'
+                dest: 'public_html/js/build.js'
             }
         },
 
@@ -32,8 +32,8 @@ module.exports = function (grunt) {
             },
 
             build: {
-                src: 'public/js/build.js',
-                dest: 'public/js/build.min.js'
+                src: 'public_html/js/build.js',
+                dest: 'public_html/js/build.min.js'
             }
         },
 
@@ -43,7 +43,7 @@ module.exports = function (grunt) {
                     paths: ["assets/css"]
                 },
                 files: {
-                    "public/css/style.css": "assets/less/style.less"
+                    "public_html/css/style.css": "assets/less/style.less"
                 }
             }
         },
@@ -54,26 +54,40 @@ module.exports = function (grunt) {
                 },
 
                 files: {
-                    'public/css/style.min.css' : ['public/css/style.css']   // первая строка - output файл. массив из строк, какие файлы конкатенировать и минифицировать.
+                    'public_html/css/style.min.css' : ['public_html/css/style.css']   // первая строка - output файл. массив из строк, какие файлы конкатенировать и минифицировать.
                 }
+            }
+        },
+        imagemin: {                          // Task
+            dynamic: {                         // Another target
+                files: [{
+                    expand: true,                  // Enable dynamic expansion
+                    cwd: 'assets/img/',                   // Src matches are relative to this path
+                    src: ['**/*.{png,jpg,gif}'],   // Actual patterns to match
+                    dest: 'public_html/img/'                  // Destination path prefix
+                }]
             }
         },
 
         watch: {
             scripts: {
                 files: ['assets/js/*.js'],
-                tasks: ['concat', 'uglify', 'removelogging']
+                tasks: ['concat', 'uglify', 'removelogging','jshint']
             },
             css: {
                 files: ['assets/less/*.less'],
                 tasks: ['less', 'cssmin']
+            },
+            image: {
+                files: ['assets/img/**/*.{png,jpg,gif}'],
+                tasks: ['imagemin']
             }
         },
 
         removelogging: {
             dist: {
-                src: "public/js/build.min.js",
-                dest: "public/js/build.clean.js"
+                src: "public_html/js/build.min.js",
+                dest: "public_html/js/build.clean.js"
             }
         }
     });
@@ -83,10 +97,11 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-remove-logging');
 
-    grunt.registerTask('default', ['concat', 'uglify', 'less', 'cssmin', 'removelogging', 'watch', 'jshint']);
+    grunt.registerTask('default', ['concat', 'uglify', 'less', 'cssmin', 'imagemin', 'removelogging', 'watch', 'jshint']);
     grunt.registerTask('debug', ['jshint']);
 
 };
