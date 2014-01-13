@@ -8,7 +8,6 @@ module.exports = function (grunt) {
                 curly: true,
                 eqnull: true,
                 eqeqeq: true,
-                undef: true,
                 globals: {
                     jQuery: true
                 }
@@ -58,13 +57,13 @@ module.exports = function (grunt) {
                 }
             }
         },
-        imagemin: {                          // Task
-            dynamic: {                         // Another target
+        imagemin: {
+            dynamic: {
                 files: [{
-                    expand: true,                  // Enable dynamic expansion
-                    cwd: 'assets/img/',                   // Src matches are relative to this path
-                    src: ['**/*.{png,jpg,gif}'],   // Actual patterns to match
-                    dest: 'public_html/img/'                  // Destination path prefix
+                    expand: true,
+                    cwd: 'assets/img/',
+                    src: ['**/*.{png,jpg,gif}'],
+                    dest: 'public_html/img/'                
                 }]
             }
         },
@@ -72,7 +71,7 @@ module.exports = function (grunt) {
         watch: {
             scripts: {
                 files: ['assets/js/*.js'],
-                tasks: ['concat', 'uglify', 'removelogging','jshint']
+                tasks: ['concat', 'uglify', 'removelogging']
             },
             css: {
                 files: ['assets/less/*.less'],
@@ -101,7 +100,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-remove-logging');
 
-    grunt.registerTask('default', ['concat', 'uglify', 'less', 'cssmin', 'imagemin', 'removelogging', 'watch', 'jshint']);
+    grunt.registerTask('default', ['concat', 'uglify', 'less', 'cssmin', 'imagemin', 'removelogging', 'watch']);
     grunt.registerTask('debug', ['jshint']);
 
 };
