@@ -46,6 +46,7 @@ module.exports = function (grunt) {
                 }
             }
         },
+
         cssmin: {
             with_banner: {
                 options: {
@@ -57,6 +58,7 @@ module.exports = function (grunt) {
                 }
             }
         },
+
         imagemin: {
             dynamic: {
                 files: [{
@@ -65,6 +67,18 @@ module.exports = function (grunt) {
                     src: ['**/*.{png,jpg,gif}'],
                     dest: 'public_html/img/'                
                 }]
+            }
+        },
+
+        htmlmin: {
+            dist: {
+                options: {
+                    removeComments: true,
+                    collapseWhitespace: true
+                },
+                files: {
+                    'public_html/index.html': 'assets/index.html'
+                }
             }
         },
 
@@ -80,6 +94,10 @@ module.exports = function (grunt) {
             image: {
                 files: ['assets/img/**/*.{png,jpg,gif}'],
                 tasks: ['imagemin']
+            },
+            html: {
+                files: ['assets/*.html'],
+                tasks: ['htmlmin']
             }
         },
 
@@ -97,10 +115,11 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
+    grunt.loadNpmTasks('grunt-contrib-htmlmin');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-remove-logging');
 
-    grunt.registerTask('default', ['concat', 'uglify', 'less', 'cssmin', 'imagemin', 'removelogging', 'watch']);
+    grunt.registerTask('default', ['concat', 'uglify', 'less', 'cssmin', 'imagemin', 'htmlmin', 'removelogging', 'watch']);
     grunt.registerTask('debug', ['jshint']);
 
 };
