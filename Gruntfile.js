@@ -81,6 +81,16 @@ module.exports = function (grunt) {
                 }
             }
         },
+        copy: {
+            fonts: {
+                expand: true,
+                cwd: 'assets/',
+                src: 'fonts/*',
+                dest: 'public_html/fonts',
+                flatten: true,
+                filter: 'isFile',
+            }
+        },
 
         watch: {
             scripts: {
@@ -101,6 +111,8 @@ module.exports = function (grunt) {
             }
         },
 
+
+
         removelogging: {
             dist: {
                 src: "public_html/js/build.min.js",
@@ -116,10 +128,11 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-contrib-htmlmin');
+    grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-remove-logging');
 
-    grunt.registerTask('default', ['concat', 'uglify', 'less', 'cssmin', 'imagemin', 'htmlmin', 'removelogging', 'watch']);
+    grunt.registerTask('default', ['concat', 'uglify', 'less', 'cssmin', 'imagemin', 'htmlmin', 'copy', 'removelogging', 'watch']);
     grunt.registerTask('debug', ['jshint']);
 
 };

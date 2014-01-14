@@ -10,6 +10,7 @@
         "grunt-contrib-cssmin" : "latest",
         "grunt-contrib-imagemin" : "latest",
         "grunt-contrib-htmlmin" : "latest",
+        "grunt-contrib-copy" : "latest",
         "grunt-contrib-watch": "latest",
         "grunt-remove-logging": "latest"
     }
