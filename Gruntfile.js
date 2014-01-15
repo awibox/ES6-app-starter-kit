@@ -13,14 +13,14 @@ module.exports = function (grunt) {
                 }
             },
             '<%= pkg.name %>': {
-                src: [ 'assets/js/**/*.js' ]
+                src: [ 'source/js/**/*.js' ]
             }
         },
 
         concat: {
             dist: {
-                src: ['assets/js/*.js'],
-                dest: 'public_html/js/build.js'
+                src: ['source/js/*.js'],
+                dest: 'source/assets/scripts.js'
             }
         },
 
@@ -31,18 +31,18 @@ module.exports = function (grunt) {
             },
 
             build: {
-                src: 'public_html/js/build.js',
-                dest: 'public_html/js/build.min.js'
+                src: 'source/assets/scripts.js',
+                dest: 'public_html/assets/scripts.js'
             }
         },
 
         less: {
             development: {
                 options: {
-                    paths: ["assets/css"]
+                    paths: ["source/css"]
                 },
                 files: {
-                    "public_html/css/style.css": "assets/less/style.less"
+                    "source/assets/styles.css": "source/less/project.less"
                 }
             }
         },
@@ -54,7 +54,7 @@ module.exports = function (grunt) {
                 },
 
                 files: {
-                    'public_html/css/style.min.css' : ['public_html/css/style.css']   // первая строка - output файл. массив из строк, какие файлы конкатенировать и минифицировать.
+                    'public_html/assets/styles.css' : ['source/assets/styles.css']
                 }
             }
         },
@@ -63,9 +63,9 @@ module.exports = function (grunt) {
             dynamic: {
                 files: [{
                     expand: true,
-                    cwd: 'assets/img/',
+                    cwd: 'source/img/',
                     src: ['**/*.{png,jpg,gif}'],
-                    dest: 'public_html/img/'                
+                    dest: 'public_html/img/'
                 }]
             }
         },
@@ -77,14 +77,15 @@ module.exports = function (grunt) {
                     collapseWhitespace: true
                 },
                 files: {
-                    'public_html/index.html': 'assets/index.html'
+                    'public_html/index.html': 'source/index.html'
                 }
             }
         },
+
         copy: {
             fonts: {
                 expand: true,
-                cwd: 'assets/',
+                cwd: 'source/',
                 src: 'fonts/*',
                 dest: 'public_html/fonts',
                 flatten: true,
@@ -94,29 +95,31 @@ module.exports = function (grunt) {
 
         watch: {
             scripts: {
-                files: ['assets/js/*.js'],
+                files: ['source/js/*.js'],
                 tasks: ['concat', 'uglify', 'removelogging']
             },
             css: {
-                files: ['assets/less/*.less'],
+                files: ['source/less/*.less'],
                 tasks: ['less', 'cssmin']
             },
             image: {
-                files: ['assets/img/**/*.{png,jpg,gif}'],
+                files: ['source/img/**/*.{png,jpg,gif}'],
                 tasks: ['imagemin']
             },
             html: {
-                files: ['assets/*.html'],
+                files: ['source/*.html'],
                 tasks: ['htmlmin']
+            },
+            fonts: {
+                files: ['source/fonts/*'],
+                tasks: ['copy']
             }
         },
 
-
-
         removelogging: {
             dist: {
-                src: "public_html/js/build.min.js",
-                dest: "public_html/js/build.clean.js"
+                src: "public_html/assets/scripts.js",
+                dest: "public_html/assets/scripts.min.js"
             }
         }
     });
