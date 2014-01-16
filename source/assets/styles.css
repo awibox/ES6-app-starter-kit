@@ -1,9 +1,9 @@
 .header {
-  background: #0000ff;
+  background: #eee;
 }
 div {
   padding: 10px;
 }
 .footer {
-  background: url(../img/rss.png);
+  background: #efeffe;
 }

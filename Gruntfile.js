@@ -19,8 +19,12 @@ module.exports = function (grunt) {
 
         concat: {
             dist: {
-                src: ['source/js/*.js'],
+                src: ['source/js/library/*.js','source/js/*.js'],
                 dest: 'source/assets/scripts.js'
+            },
+            jquery: {
+                src: ['source/js/jquery/*.js'],
+                dest: 'source/assets/jquery.js'
             }
         },
 
@@ -33,6 +37,10 @@ module.exports = function (grunt) {
             build: {
                 src: 'source/assets/scripts.js',
                 dest: 'public_html/assets/scripts.js'
+            },
+            jquery: {
+                src: 'source/assets/jquery.js',
+                dest: 'public_html/assets/jquery.js'
             }
         },
 
@@ -89,13 +97,13 @@ module.exports = function (grunt) {
                 src: 'fonts/*',
                 dest: 'public_html/fonts',
                 flatten: true,
-                filter: 'isFile',
+                filter: 'isFile'
             }
         },
 
         watch: {
             scripts: {
-                files: ['source/js/*.js'],
+                files: ['source/js/**/*.js'],
                 tasks: ['concat', 'uglify', 'removelogging']
             },
             css: {
