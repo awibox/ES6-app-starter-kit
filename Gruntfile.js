@@ -3,20 +3,6 @@ module.exports = function (grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
 
-        jshint: {
-            options: {
-                curly: true,
-                eqnull: true,
-                eqeqeq: true,
-                globals: {
-                    jQuery: true
-                }
-            },
-            '<%= pkg.name %>': {
-                src: [ 'source/js/**/*.js' ]
-            }
-        },
-
         concat: {
             dist: {
                 src: ['source/js/library/*.js','source/js/*.js'],
@@ -132,7 +118,6 @@ module.exports = function (grunt) {
         }
     });
 
-    grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-less');
@@ -144,6 +129,5 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-remove-logging');
 
     grunt.registerTask('default', ['concat', 'uglify', 'less', 'cssmin', 'imagemin', 'htmlmin', 'copy', 'removelogging', 'watch']);
-    grunt.registerTask('debug', ['jshint']);
 
 };

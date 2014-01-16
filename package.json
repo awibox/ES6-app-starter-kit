@@ -3,7 +3,6 @@
     "version": "0.1.0",
     "devDependencies": {
         "grunt": "~0.4.2",
-        "grunt-contrib-jshint": "latest",
         "grunt-contrib-concat": "latest",
         "grunt-contrib-uglify": "latest",
         "grunt-contrib-less": "latest",
