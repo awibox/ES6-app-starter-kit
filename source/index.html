@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html class="i-ua_js_no i-ua_css_standard">
 <head>
-    <meta charset="utf-8"/>
+    <meta charset="utf-8">
+    <!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
     <title>Title of page</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="description" content=""/>
@@ -13,8 +14,13 @@
     <script src="assets/scripts.js"></script>
 </head>
 <body class="b-page b-page__body">
-    <div class="header">Header</div>
-    <div class="content"><img src="img/i_file_zip.gif"> zip archive</div>
-    <div class="footer"><img src="img/rss.png"> RSS </div>
+    <div class="wrapper">
+        <div class="header clearfix">
+            <div class="header__logo">Default Project</div>
+            <div class="header__desc">Заготовка для новых проектов. <br>Проект собирается с помощью grunt.js.</div>
+        </div>
+        <div class="content"><img src="img/i_file_zip.gif"> zip archive</div>
+        <div class="footer"><img src="img/rss.png"> RSS </div>
+    </div>
 </body>
 </html>

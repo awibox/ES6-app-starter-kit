@@ -1,0 +1,44 @@
+.clear {
+  clear: both;
+}
+.row {
+  margin-left: -@columnIndent;
+}
+.row:after {
+  display: block;
+  content: "";
+  clear: both;
+}
+.row [class*="column"] {
+  display: block;
+  float: left;
+  min-height: 40px;
+  margin-left: @columnIndent;
+  .box-sizing;
+}
+.row .column1 {width: 8.33%-@columnIndent;}
+.row .column2 {width: 8.33%*2-@columnIndent;}
+.row .column3 {width: 8.33%*3-@columnIndent;}
+.row .column4 {width: 8.33%*4-@columnIndent;}
+.row .column5 {width: 8.33%*5-@columnIndent;}
+.row .column6 {width: 8.33%*6-@columnIndent;}
+.row .column7 {width: 8.33%*7-@columnIndent;}
+.row .column8 {width: 8.33%*8-@columnIndent;}
+.row .column9 {width: 8.33%*9-@columnIndent;}
+.row .column10 {width: 8.33%*10-@columnIndent;}
+.row .column11 {width: 8.33%*11-@columnIndent;}
+.row .column12 {width: 8.33%*12-@columnIndent;}
+
+.row .margin1 {margin-right: 8.33%;}
+.row .margin2 {margin-right: 8.33%*2;}
+.row .margin3 {margin-right: 8.33%*3;}
+.row .margin4 {margin-right: 8.33%*4;}
+.row .margin5 {margin-right: 8.33%*5;}
+.row .margin6 {margin-right: 8.33%*6;}
+.row .margin7 {margin-right: 8.33%*7;}
+.row .margin8 {margin-right: 8.33%*8;}
+.row .margin9 {margin-right: 8.33%*9;}
+.row .margin10 {margin-right: 8.33%*10;}
+.row .margin11 {margin-right: 8.33%*11;}
+.row .margin12 {margin-right: 8.33%*12;}
+

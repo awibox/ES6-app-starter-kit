@@ -1,9 +1,24 @@
-.header {
-  background: #eee;
-}
-div {
-  padding:10px;
-}
-.footer {
-  background: #efeffe;
-}
+/* ---------- Settings ---------- */
+@bodyFont:Arial, Tahoma, Verdana, sans-serif; // название шрифта.
+@bodyFontSize:14px; // размер шрифта
+@bodyFontLineHeight:20px; // межстрочный интервал
+@bodyColor:#111; // цвет текста на сайте
+@bodyBackground:#fff; // цвет фона сайта
+@bodyLinkColor:#1270b3; // цвет ссылок
+@bodyLinkColorHover:#1370b3; // цвет ссылок при наведении
+
+@siteWidth:960px; // ширина сайта, если сайт резиновый то указывать в процентах
+@siteMinWidth:0;  // минимальная ширина сайта
+@siteMaxWidth:1920px; // максимальная ширина сайта
+
+@columnIndent:2%; // отступы между колонками
+@defaultIndent:20px; // отступы между блоками
+@blockIndent:20px; // отступы внутри блоков
+
+/* -------- Import main files -------- */
+@import "project-main";
+@import "project-theme";
+@import "project-columns";
+
+/* ---------- Import blocks ---------- */
+@import "block/header";

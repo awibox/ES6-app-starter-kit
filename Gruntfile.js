@@ -92,8 +92,12 @@ module.exports = function (grunt) {
                 files: ['source/js/**/*.js'],
                 tasks: ['concat', 'uglify', 'removelogging']
             },
-            css: {
+            less: {
                 files: ['source/less/*.less'],
+                tasks: ['less', 'cssmin']
+            },
+            lessblocks: {
+                files: ['source/less/**/*.less'],
                 tasks: ['less', 'cssmin']
             },
             image: {
