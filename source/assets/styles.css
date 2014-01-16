@@ -53,6 +53,10 @@ ul,
 ol {
   margin: 0;
   padding: 0;
+  padding-left: 20px;
+}
+p {
+  margin: 0 0 10px;
 }
 input,
 textarea,
@@ -67,7 +71,7 @@ input {
 .clear {
   clear: both;
 }
-.clearfix:after {
+.clearfix {
   display: block;
   content: "";
   clear: both;
@@ -236,98 +240,6 @@ input {
 .border-black {
   border-color: #1c1c1c;
 }
-.clear {
-  clear: both;
-}
-.row {
-  margin-left: -2%;
-}
-.row:after {
-  display: block;
-  content: "";
-  clear: both;
-}
-.row [class*="column"] {
-  display: block;
-  float: left;
-  min-height: 40px;
-  margin-left: 2%;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-.row .column1 {
-  width: 6.33%;
-}
-.row .column2 {
-  width: 14.66%;
-}
-.row .column3 {
-  width: 22.990000000000002%;
-}
-.row .column4 {
-  width: 31.32%;
-}
-.row .column5 {
-  width: 39.65%;
-}
-.row .column6 {
-  width: 47.980000000000004%;
-}
-.row .column7 {
-  width: 56.31%;
-}
-.row .column8 {
-  width: 64.64%;
-}
-.row .column9 {
-  width: 72.97%;
-}
-.row .column10 {
-  width: 81.3%;
-}
-.row .column11 {
-  width: 89.63%;
-}
-.row .column12 {
-  width: 97.96000000000001%;
-}
-.row .margin1 {
-  margin-right: 8.33%;
-}
-.row .margin2 {
-  margin-right: 16.66%;
-}
-.row .margin3 {
-  margin-right: 24.990000000000002%;
-}
-.row .margin4 {
-  margin-right: 33.32%;
-}
-.row .margin5 {
-  margin-right: 41.65%;
-}
-.row .margin6 {
-  margin-right: 49.980000000000004%;
-}
-.row .margin7 {
-  margin-right: 58.31%;
-}
-.row .margin8 {
-  margin-right: 66.64%;
-}
-.row .margin9 {
-  margin-right: 74.97%;
-}
-.row .margin10 {
-  margin-right: 83.3%;
-}
-.row .margin11 {
-  margin-right: 91.63%;
-}
-.row .margin12 {
-  margin-right: 99.96000000000001%;
-}
 /* ---------- Import blocks ---------- */
 .header {
   width: 100%;
@@ -347,4 +259,26 @@ input {
   font-size: 14px;
   float: right;
   text-align: right;
+}
+.content {
+  background-color: #ededed;
+  padding: 30px 30px;
+}
+.content:after {
+  display: block;
+  content: "";
+  clear: both;
+}
+.content__item {
+  float: left;
+  width: 25%;
+  padding-top: 90px;
+  text-align: center;
+  font-size: 18px;
+}
+.content__item_grunt {
+  background: url(../img/grunt.png) no-repeat 50% 0;
+}
+.content__item_less {
+  background: url(../img/less.png) no-repeat 50% 0;
 }
