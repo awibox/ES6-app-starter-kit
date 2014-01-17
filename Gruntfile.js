@@ -99,7 +99,7 @@ module.exports = function (grunt) {
                 tasks: ['concat', 'uglify', 'removelogging']
             },
             less: {
-                files: ['source/less/*.less'],
+                files: ['source/**/*.less'],
                 tasks: ['less', 'cssmin']
             },
             image: {

@@ -242,19 +242,19 @@ input {
 }
 /* import blocks */
 /* block header */
-.header {
+.b-header {
   width: 100%;
   height: 100px;
-  background-color: #e9ffba;
+  background-color: #d6f2ff;
 }
-.header__logo {
+.b-header__logo {
   margin-left: 30px;
   height: 100px;
   line-height: 100px;
   font-size: 26px;
   float: left;
 }
-.header__desc {
+.b-header__desc {
   margin-right: 30px;
   padding-top: 30px;
   font-size: 14px;
@@ -262,16 +262,16 @@ input {
   text-align: right;
 }
 /* block content */
-.content {
+.b-content {
   background-color: #ededed;
   padding: 30px 30px;
 }
-.content:after {
+.b-content:after {
   display: block;
   content: "";
   clear: both;
 }
-.content__item {
+.b-content__item {
   float: left;
   width: 33%;
   padding-left: 110px;
@@ -283,12 +283,12 @@ input {
   box-sizing: border-box;
   background-color: #fee1d9;
 }
-.content__item_grunt {
+.b-content__item_grunt {
   background: url(../img/grunt.png) no-repeat 20px 0;
 }
-.content__item_less {
+.b-content__item_less {
   background: url(../img/less.png) no-repeat 0 0;
 }
-.content__item_bem {
+.b-content__item_bem {
   background: url(../img/bem.png) no-repeat 20px 0;
 }
