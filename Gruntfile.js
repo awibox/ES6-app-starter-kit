@@ -53,6 +53,12 @@ module.exports = function (grunt) {
             }
         },
 
+        clean: {
+            build: {
+                src: ["public_html/img/", "public_html/fonts/"]
+            }
+        },
+
         imagemin: {
             dynamic: {
                 files: [{
@@ -98,7 +104,7 @@ module.exports = function (grunt) {
             },
             image: {
                 files: ['source/img/**/*.{png,jpg,gif}'],
-                tasks: ['imagemin']
+                tasks: ['clean', 'imagemin', 'copy']
             },
             html: {
                 files: ['source/*.html'],
@@ -106,7 +112,7 @@ module.exports = function (grunt) {
             },
             fonts: {
                 files: ['source/fonts/*'],
-                tasks: ['copy']
+                tasks: ['clean', 'copy', 'imagemin']
             }
         },
 
@@ -125,9 +131,10 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-contrib-htmlmin');
     grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-remove-logging');
 
-    grunt.registerTask('default', ['concat', 'uglify', 'less', 'cssmin', 'imagemin', 'htmlmin', 'copy', 'removelogging', 'watch']);
+    grunt.registerTask('default', ['concat', 'uglify', 'less', 'cssmin', 'clean', 'imagemin', 'htmlmin', 'copy', 'removelogging', 'watch']);
 
 };
