@@ -1,5 +1,4 @@
-/* ---------- Settings ---------- */
-/* -------- Import main files -------- */
+/* import main styles */
 * {
   margin: 0;
   padding: 0;
@@ -87,6 +86,7 @@ input {
   max-width: 1920px;
   margin: 0 auto;
 }
+/* theme styles */
 .font-light-grey {
   color: #ededed;
 }
@@ -240,7 +240,8 @@ input {
 .border-black {
   border-color: #1c1c1c;
 }
-/* ---------- Import blocks ---------- */
+/* import blocks */
+/* block header */
 .header {
   width: 100%;
   height: 100px;
@@ -260,6 +261,7 @@ input {
   float: right;
   text-align: right;
 }
+/* block content */
 .content {
   background-color: #ededed;
   padding: 30px 30px;
@@ -271,14 +273,22 @@ input {
 }
 .content__item {
   float: left;
-  width: 25%;
-  padding-top: 90px;
-  text-align: center;
+  width: 33%;
+  padding-left: 110px;
   font-size: 18px;
+  height: 81px;
+  line-height: 81px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background-color: #fee1d9;
 }
 .content__item_grunt {
-  background: url(../img/grunt.png) no-repeat 50% 0;
+  background: url(../img/grunt.png) no-repeat 20px 0;
 }
 .content__item_less {
-  background: url(../img/less.png) no-repeat 50% 0;
+  background: url(../img/less.png) no-repeat 0 0;
+}
+.content__item_bem {
+  background: url(../img/bem.png) no-repeat 20px 0;
 }

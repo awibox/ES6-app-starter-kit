@@ -96,10 +96,6 @@ module.exports = function (grunt) {
                 files: ['source/less/*.less'],
                 tasks: ['less', 'cssmin']
             },
-            lessblocks: {
-                files: ['source/less/**/*.less'],
-                tasks: ['less', 'cssmin']
-            },
             image: {
                 files: ['source/img/**/*.{png,jpg,gif}'],
                 tasks: ['imagemin']
