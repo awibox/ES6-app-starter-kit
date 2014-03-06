@@ -14,7 +14,7 @@ body {
 a{color:@bodyLinkColor;outline:none;text-decoration:none;}
 a:focus,a:hover{color:@bodyLinkColorHover;text-decoration: underline;}
 img {border:none;}
-ul, ol {margin:0;padding:0;padding-left: 20px}
+ul, ol {margin:0;padding:0;}
 p {
   margin: 0 0 10px;
 }
@@ -22,7 +22,7 @@ input, textarea, select {font-family:@bodyFont;font-size:@bodyFontSize;color:@bo
 input {vertical-align: middle;}
 
 .clear {clear: both;}
-.clearfix {display: block;content: "";clear: both;}
+.clearfix:after {display: block;content: "";clear: both;}
 
 .box-sizing {
   -webkit-box-sizing: border-box;
