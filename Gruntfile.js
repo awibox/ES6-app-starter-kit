@@ -3,6 +3,15 @@ module.exports = function (grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
 
+        clean: {
+            fonts: {
+                src: ["public_html/fonts/"]
+            },
+            images: {
+                src: ["public_html/img/"]
+            }
+        },
+
         concat: {
             dist: {
                 src: ['source/js/library/*.js','source/js/blocks/*.js','source/js/*.js'],
@@ -53,11 +62,7 @@ module.exports = function (grunt) {
             }
         },
 
-        clean: {
-            build: {
-                src: ["public_html/img/", "public_html/fonts/"]
-            }
-        },
+
 
         imagemin: {
             dynamic: {
@@ -104,7 +109,7 @@ module.exports = function (grunt) {
             },
             image: {
                 files: ['source/img/**/*.{png,jpg,gif}'],
-                tasks: ['clean', 'imagemin', 'copy']
+                tasks: ['clean:images', 'imagemin']
             },
             html: {
                 files: ['source/*.html'],
@@ -112,7 +117,7 @@ module.exports = function (grunt) {
             },
             fonts: {
                 files: ['source/fonts/*'],
-                tasks: ['clean', 'copy', 'imagemin']
+                tasks: ['clean:fonts', 'copy']
             }
         },
 
@@ -135,6 +140,6 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-remove-logging');
 
-    grunt.registerTask('default', ['concat', 'uglify', 'less', 'cssmin', 'clean', 'imagemin', 'htmlmin', 'copy', 'removelogging', 'watch']);
+    grunt.registerTask('default', ['clean', 'concat', 'uglify', 'less', 'cssmin',  'imagemin', 'htmlmin', 'copy', 'removelogging', 'watch']);
 
 };

@@ -52,7 +52,6 @@ ul,
 ol {
   margin: 0;
   padding: 0;
-  padding-left: 20px;
 }
 p {
   margin: 0 0 10px;
@@ -70,7 +69,7 @@ input {
 .clear {
   clear: both;
 }
-.clearfix {
+.clearfix:after {
   display: block;
   content: "";
   clear: both;
@@ -265,11 +264,6 @@ input {
 .b-content {
   background-color: #ededed;
   padding: 30px 30px;
-}
-.b-content:after {
-  display: block;
-  content: "";
-  clear: both;
 }
 .b-content__item {
   float: left;
