@@ -13,14 +13,19 @@ module.exports = function (grunt) {
         },
 
         concat: {
-            dist: {
-                src: ['source/js/library/*.js','source/js/blocks/*.js','source/js/*.js'],
-                dest: 'source/assets/scripts.js'
-            },
             jquery: {
                 src: ['source/js/jquery/*.js'],
                 dest: 'source/assets/jquery.js'
+            },
+            plugins: {
+                src: ['source/js/library/*.js'],
+                dest: 'source/assets/plugins.js'
+            },
+            dist: {
+                src: ['source/blocks/**/*.js'],
+                dest: 'source/assets/scripts.js'
             }
+
         },
 
         uglify: {
