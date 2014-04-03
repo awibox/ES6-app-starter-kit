@@ -1,0 +1,11 @@
+#!/bin/bash
+
+mkdir source/blocks/$1;
+
+for i in ${@:2}
+do
+    mkdir source/blocks/$1/$i;
+    if [ $i == "css" ] || [ $i == "js" ] || [ $i == "less" ];then
+        touch source/blocks/$1/$i/$1.$i
+    fi
+done
