@@ -12,6 +12,6 @@
         "grunt-contrib-copy" : "latest",
         "grunt-contrib-clean" : "latest",
         "grunt-contrib-watch": "latest",
-        "grunt-remove-logging": "latest"
+        "grunt-shell": "latest"
     }
 }

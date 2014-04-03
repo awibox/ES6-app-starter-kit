@@ -15,17 +15,16 @@ module.exports = function (grunt) {
         concat: {
             jquery: {
                 src: ['source/js/jquery/*.js'],
-                dest: 'source/assets/jquery.js'
+                dest: 'source/js/jquery.js'
             },
             plugins: {
                 src: ['source/js/library/*.js'],
-                dest: 'source/assets/plugins.js'
+                dest: 'source/js/plugins.js'
             },
             dist: {
                 src: ['source/blocks/**/*.js'],
-                dest: 'source/assets/scripts.js'
+                dest: 'source/js/scripts.js'
             }
-
         },
 
         uglify: {
@@ -35,12 +34,12 @@ module.exports = function (grunt) {
             },
 
             build: {
-                src: 'source/assets/scripts.js',
-                dest: 'public_html/assets/scripts.js'
+                src: 'source/js/scripts.js',
+                dest: 'public_html/js/scripts.js'
             },
             jquery: {
-                src: 'source/assets/jquery.js',
-                dest: 'public_html/assets/jquery.js'
+                src: 'source/js/jquery.js',
+                dest: 'public_html/js/jquery.js'
             }
         },
 
@@ -50,7 +49,7 @@ module.exports = function (grunt) {
                     paths: ["source/css"]
                 },
                 files: {
-                    "source/assets/styles.css": "source/less/build.less"
+                    "source/css/styles.css": ["source/less/build.less"]
                 }
             }
         },
@@ -62,7 +61,7 @@ module.exports = function (grunt) {
                 },
 
                 files: {
-                    'public_html/assets/styles.css' : ['source/assets/styles.css']
+                    'public_html/css/styles.css' : ['source/css/styles.css']
                 }
             }
         },
@@ -73,7 +72,7 @@ module.exports = function (grunt) {
             dynamic: {
                 files: [{
                     expand: true,
-                    cwd: 'source/img/',
+                    cwd: 'source/blocks/',
                     src: ['**/*.{png,jpg,gif}'],
                     dest: 'public_html/img/'
                 }]
@@ -105,7 +104,7 @@ module.exports = function (grunt) {
 
         watch: {
             scripts: {
-                files: ['source/js/**/*.js'],
+                files: ['source/**/*.js'],
                 tasks: ['concat', 'uglify', 'removelogging']
             },
             less: {
@@ -124,13 +123,6 @@ module.exports = function (grunt) {
                 files: ['source/fonts/*'],
                 tasks: ['clean:fonts', 'copy']
             }
-        },
-
-        removelogging: {
-            dist: {
-                src: "public_html/assets/scripts.js",
-                dest: "public_html/assets/scripts.min.js"
-            }
         }
     });
 
@@ -143,8 +135,6 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-remove-logging');
 
-    grunt.registerTask('default', ['clean', 'concat', 'uglify', 'less', 'cssmin',  'imagemin', 'htmlmin', 'copy', 'removelogging', 'watch']);
-
+    grunt.registerTask('default', ['clean', 'concat', 'uglify', 'less', 'cssmin',  'imagemin', 'htmlmin', 'copy', 'watch']);
 };
