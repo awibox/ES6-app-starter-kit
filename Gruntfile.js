@@ -3,9 +3,15 @@ module.exports = function (grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
 
-        clean: {
-            images: {
-                src: ["public_html/img/"]
+        htmlmin: {
+            dist: {
+                options: {
+                    removeComments: true,
+                    collapseWhitespace: true
+                },
+                files: {
+                    'public_html/index.html': 'source/index.html'
+                }
             }
         },
 
@@ -25,22 +31,6 @@ module.exports = function (grunt) {
             less: {
                 src: ['source/blocks/**/*.less'],
                 dest: 'source/css/style.less'
-            }
-        },
-
-        uglify: {
-            options: {
-                stripBanners: true,
-                banner: '/* <%= pkg.name %> - v<%= pkg.version %> - <%= grunt.template.today("yyyy-mm-dd") %> */\n'
-            },
-
-            build: {
-                src: 'source/js/scripts.js',
-                dest: 'public_html/js/scripts.js'
-            },
-            jquery: {
-                src: 'source/js/jquery.js',
-                dest: 'public_html/js/jquery.js'
             }
         },
 
@@ -67,7 +57,27 @@ module.exports = function (grunt) {
             }
         },
 
+        uglify: {
+            options: {
+                stripBanners: true,
+                banner: '/* <%= pkg.name %> - v<%= pkg.version %> - <%= grunt.template.today("yyyy-mm-dd") %> */\n'
+            },
 
+            build: {
+                src: 'source/js/scripts.js',
+                dest: 'public_html/js/scripts.js'
+            },
+            jquery: {
+                src: 'source/js/jquery.js',
+                dest: 'public_html/js/jquery.js'
+            }
+        },
+
+        clean: {
+            images: {
+                src: ["public_html/img/"]
+            }
+        },
 
         imagemin: {
             dynamic: {
@@ -77,18 +87,6 @@ module.exports = function (grunt) {
                     src: ['**/*.{png,jpg,gif}'],
                     dest: 'public_html/img/'
                 }]
-            }
-        },
-
-        htmlmin: {
-            dist: {
-                options: {
-                    removeComments: true,
-                    collapseWhitespace: true
-                },
-                files: {
-                    'public_html/index.html': 'source/index.html'
-                }
             }
         },
 
@@ -125,5 +123,5 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-watch');
 
-    grunt.registerTask('default', ['clean', 'concat', 'uglify', 'less', 'cssmin',  'imagemin', 'htmlmin', 'watch']);
+    grunt.registerTask('default', ['htmlmin','concat','less','cssmin','uglify','clean','imagemin','watch']);
 };
