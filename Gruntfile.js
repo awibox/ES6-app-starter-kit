@@ -4,9 +4,6 @@ module.exports = function (grunt) {
         pkg: grunt.file.readJSON('package.json'),
 
         clean: {
-            fonts: {
-                src: ["public_html/fonts/"]
-            },
             images: {
                 src: ["public_html/img/"]
             }
@@ -24,6 +21,10 @@ module.exports = function (grunt) {
             dist: {
                 src: ['source/blocks/**/*.js'],
                 dest: 'source/js/scripts.js'
+            },
+            less: {
+                src: ['source/blocks/**/*.less'],
+                dest: 'source/css/style.less'
             }
         },
 
@@ -91,17 +92,6 @@ module.exports = function (grunt) {
             }
         },
 
-        copy: {
-            fonts: {
-                expand: true,
-                cwd: 'source/',
-                src: 'fonts/*',
-                dest: 'public_html/fonts',
-                flatten: true,
-                filter: 'isFile'
-            }
-        },
-
         watch: {
             scripts: {
                 files: ['source/**/*.js'],
@@ -109,7 +99,7 @@ module.exports = function (grunt) {
             },
             less: {
                 files: ['source/**/*.less'],
-                tasks: ['less', 'cssmin']
+                tasks: ['concat:less', 'less', 'cssmin']
             },
             image: {
                 files: ['source/img/**/*.{png,jpg,gif}'],
@@ -132,9 +122,8 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-contrib-htmlmin');
-    grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-watch');
 
-    grunt.registerTask('default', ['clean', 'concat', 'uglify', 'less', 'cssmin',  'imagemin', 'htmlmin', 'copy', 'watch']);
+    grunt.registerTask('default', ['clean', 'concat', 'uglify', 'less', 'cssmin',  'imagemin', 'htmlmin', 'watch']);
 };

@@ -1,11 +1,3 @@
-/**
- * Created by andrey on 30.03.14.
- */
-console.log("b-content");
-/**
- * Created by andrey on 30.03.14.
- */
-console.log("b-header");
 function test() {
     var tester = 1;
     tester = tester + tester;
@@ -14,3 +6,11 @@ function test() {
 if(1 == 1) {
     test();
 }
+/**
+ * Created by andrey on 30.03.14.
+ */
+console.log("b-content");
+/**
+ * Created by andrey on 30.03.14.
+ */
+console.log("b-header");
