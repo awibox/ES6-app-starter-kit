@@ -16,6 +16,10 @@ module.exports = function (grunt) {
         },
 
         concat: {
+            less: {
+                src: ['source/less/variables.less','source/less/main.less','source/less/theme.less','source/blocks/**/*.less'],
+                dest: 'source/less/build.less'
+            },
             jquery: {
                 src: ['source/js/jquery/*.js'],
                 dest: 'source/js/jquery.js'
@@ -27,10 +31,6 @@ module.exports = function (grunt) {
             dist: {
                 src: ['source/blocks/**/*.js'],
                 dest: 'source/js/scripts.js'
-            },
-            less: {
-                src: ['source/blocks/**/*.less'],
-                dest: 'source/css/style.less'
             }
         },
 
