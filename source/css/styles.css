@@ -1,4 +1,3 @@
-/*---------- Settings ----------*/
 /*---------- Index styles ----------*/
 * {
   margin: 0;
@@ -260,9 +259,6 @@ input {
 }
 .b-content__item_bem {
   background: url(../../../img/bem.png) no-repeat 20px 0;
-}
-.b-frunt {
-  width: 30px;
 }
 /* block header */
 .b-header {

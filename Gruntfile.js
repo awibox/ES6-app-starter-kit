@@ -4,7 +4,7 @@ module.exports = function (grunt) {
         pkg: grunt.file.readJSON('package.json'),
 
         htmlmin: {
-            dist: {
+            production: {
                 options: {
                     removeComments: true,
                     collapseWhitespace: true
@@ -28,14 +28,14 @@ module.exports = function (grunt) {
                 src: ['source/js/library/*.js'],
                 dest: 'source/js/plugins.js'
             },
-            dist: {
+            scripts: {
                 src: ['source/blocks/**/*.js'],
                 dest: 'source/js/scripts.js'
             }
         },
 
         less: {
-            development: {
+            build: {
                 options: {
                     paths: ["source/css"]
                 },
@@ -46,9 +46,9 @@ module.exports = function (grunt) {
         },
 
         cssmin: {
-            with_banner: {
+            production: {
                 options: {
-                    banner: '/* My minified CSS */'
+                    banner: '/* <%= pkg.name %> - v<%= pkg.version %> - <%= grunt.template.today("yyyy-mm-dd") %> */'
                 },
 
                 files: {
@@ -62,14 +62,17 @@ module.exports = function (grunt) {
                 stripBanners: true,
                 banner: '/* <%= pkg.name %> - v<%= pkg.version %> - <%= grunt.template.today("yyyy-mm-dd") %> */\n'
             },
-
-            build: {
+            scripts: {
                 src: 'source/js/scripts.js',
                 dest: 'public_html/js/scripts.js'
             },
             jquery: {
                 src: 'source/js/jquery.js',
                 dest: 'public_html/js/jquery.js'
+            },
+            plugins: {
+                src: 'source/js/plugins.js',
+                dest: 'public_html/js/plugins.js'
             }
         },
 
@@ -84,7 +87,7 @@ module.exports = function (grunt) {
                 files: [{
                     expand: true,
                     cwd: 'source/blocks/',
-                    src: ['**/*.{png,jpg,gif}'],
+                    src: ['*.{png,jpg,gif}'],
                     dest: 'public_html/img/'
                 }]
             }

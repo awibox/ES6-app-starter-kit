@@ -9,7 +9,6 @@
         "grunt-contrib-cssmin" : "latest",
         "grunt-contrib-imagemin" : "0.3.0",
         "grunt-contrib-htmlmin" : "latest",
-        "grunt-contrib-copy" : "latest",
         "grunt-contrib-clean" : "latest",
         "grunt-contrib-watch": "latest",
         "grunt-shell": "latest"
