@@ -17,7 +17,7 @@ module.exports = function (grunt) {
 
         concat: {
             less: {
-                src: ['source/less/variables.less','source/less/main.less','source/less/theme.less','source/blocks/**/*.less'],
+                src: ['source/build/variables.less','source/build/main.less','source/build/theme.less','source/blocks/**/*.less'],
                 dest: 'source/less/build.less'
             },
             jquery: {
@@ -127,7 +127,6 @@ module.exports = function (grunt) {
             }
         }
     });
-
 
     grunt.loadNpmTasks('grunt-contrib-htmlmin');
     grunt.loadNpmTasks('grunt-contrib-concat');
