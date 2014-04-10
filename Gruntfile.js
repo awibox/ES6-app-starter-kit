@@ -21,11 +21,11 @@ module.exports = function (grunt) {
                 dest: 'source/less/build.less'
             },
             jquery: {
-                src: ['source/js/jquery/*.js'],
+                src: ['source/build/jquery/*.js'],
                 dest: 'source/js/jquery.js'
             },
             plugins: {
-                src: ['source/js/library/*.js'],
+                src: ['source/build/library/*.js'],
                 dest: 'source/js/plugins.js'
             },
             scripts: {

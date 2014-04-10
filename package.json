@@ -1,6 +1,6 @@
 {
-    "name": "grunt-project",
-    "version": "0.1.0",
+    "name": "bem-builder",
+    "version": "1.0.0",
     "devDependencies": {
         "grunt": "~0.4.2",
         "grunt-contrib-concat": "latest",
