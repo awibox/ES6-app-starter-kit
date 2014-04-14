@@ -139,4 +139,5 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
 
     grunt.registerTask('default', ['htmlmin','concat','less','cssmin','uglify','clean','copy','imagemin','watch']);
+    grunt.registerTask('production', ['htmlmin','concat','less','cssmin','uglify','clean','copy','imagemin']);
 };
