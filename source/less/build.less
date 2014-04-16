@@ -1,16 +1,22 @@
-//---------- Settings ----------
-@bodyFont:Arial, Tahoma, Verdana, sans-serif; // название шрифта.
-@bodyFontSize:14px; // размер шрифта
-@bodyFontLineHeight:20px; // межстрочный интервал
-@bodyColor:#111; // цвет текста на сайте
-@bodyBackground:#fff; // цвет фона сайта
-@bodyLinkColor:#1270b3; // цвет ссылок
-@bodyLinkColorHover:#1370b3; // цвет ссылок при наведении
-
+// Main
 @siteWidth:960px; // ширина сайта, если сайт резиновый то указывать в процентах
 @siteMinWidth:0;  // минимальная ширина сайта
 @siteMaxWidth:1920px; // максимальная ширина сайта
 
+// Fonts
+@bodyFont:Arial, Tahoma, Verdana, sans-serif; // название шрифта.
+@bodyFontSize:14px; // размер шрифта
+@bodyFontLineHeight:20px; // межстрочный интервал
+
+@arial: Arial, Tahoma, serif;
+@tahoma: Tahoma, serif;
+@roboto: "Roboto", serif;
+
+// Colors
+@bodyColor:#111; // цвет текста на сайте
+@bodyBackground:#f5f5f5; // цвет фона сайта
+@bodyLinkColor:#1270b3; // цвет ссылок
+@bodyLinkColorHover:#1370b3; // цвет ссылок при наведении
 
 /*---------- Index styles ----------*/
 * {margin: 0;padding: 0;}
@@ -49,152 +55,91 @@ input {vertical-align: middle;}
   box-sizing: border-box;
 }
 
-.wrapper {
+.b-content {
+  position: relative;
+  min-height: 400px;
+  padding-top: 75px;
+}
+@b-droppable-widht: 960px;
+@b-droppable-indent: 5px;
+@b-droppable__block-width:150px;
+@b-droppable__block-height: 90px;
+
+.b-droppable {
+  width: @b-droppable-widht;
+  height: 500px;
+  background: #fff;
+  position: relative;
+  margin: 0 auto;
+}
+.b-droppable__block {
+  width: @b-droppable__block-width;
+  height: @b-droppable__block-height;
+  background: #f5f5f5;
+  float: left;
+  margin:@b-droppable-indent;
+  z-index: 5;
+}
+
+.b-droppable__place {
+  width: @b-droppable__block-width;
+  height: @b-droppable__block-height;
+  background: #eee;
+  position: absolute;
+  z-index: 3;
+  &.b-droppable__place-1 {
+    bottom: @b-droppable-indent;
+    left:(@b-droppable-widht - @b-droppable-indent*2 - @b-droppable__block-width*3)/2;
+  }
+  &.b-droppable__place-2 {
+    bottom: @b-droppable-indent;
+    left:(@b-droppable-widht - @b-droppable__block-width)/2;
+  }
+  &.b-droppable__place-3 {
+    bottom: @b-droppable-indent;
+    left:(@b-droppable-widht - @b-droppable__block-width)/2 + @b-droppable__block-width + @b-droppable-indent;
+  }
+  &.b-droppable__place-4 {
+    bottom: @b-droppable__block-height + @b-droppable-indent*2;
+    left:(@b-droppable-widht - @b-droppable-indent - @b-droppable__block-width*2)/2;
+  }
+  &.b-droppable__place-5 {
+    bottom: @b-droppable__block-height + @b-droppable-indent*2;
+    left:(@b-droppable-widht - @b-droppable-indent - @b-droppable__block-width*2)/2 + @b-droppable__block-width + @b-droppable-indent;
+  }
+  &.b-droppable__place-6 {
+    bottom: @b-droppable__block-height*2 + @b-droppable-indent*3;
+    left:(@b-droppable-widht - @b-droppable__block-width)/2;
+  }
+}
+.b-header {
+  width: 100%;
+  position: absolute;
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+  z-index: 20;
+}
+.b-header__name {
+  float: left;
+  padding: 20px 0;
+  font-family: @roboto;
+  font-size: 24px;
+  height: 24px;
+  line-height: 24px;
+}
+.b-header__author {
+  float: right;
+  height: 24px;
+  line-height: 24px;
+  padding: 20px 0;
+}
+.b-page {
+  background-color: @bodyBackground;
+  height: 100%;
+}
+.b-wrapper {
   width: @siteWidth;
   min-width: @siteMinWidth;
   max-width: @siteMaxWidth;
   margin: 0 auto;
-}
-
-/*---------- Theme ----------*/
-@defaultColor:#f8f8f8;
-
-@grey:#999;
-@lightGrey:lighten(@grey, 33%);
-@darkGrey:darken(@grey, 20%);
-
-@blue:#00a4ef;
-@lightBlue:lighten(@blue, 45%);
-@darkBlue:darken(@blue, 10%);
-
-@green:#7fba00;
-@lightGreen:lighten(@green, 50%);
-@darkGreen:darken(@green, 8%);
-
-@yellow:darken(#ffb900, 1%);
-@lightYellow:lighten(@yellow, 38%);
-@darkYellow:darken(@yellow, 8%);
-
-@red:#f74e1e;
-@lightRed:lighten(@red, 38%);
-@darkRed:darken(@red, 12%);
-
-@white:#fff;
-@black:#1c1c1c;
-
-//  grey
-.font-light-grey {color: @lightGrey}
-.bg-light-grey {background-color: @lightGrey}
-.border-light-grey {border-color: @lightGrey}
-
-.font-grey {color: @grey}
-.bg-grey {background-color: @grey}
-.border-grey {border-color: @grey}
-
-.font-dark-grey {color: @darkGrey}
-.bg-dark-grey {background-color: @darkGrey}
-.border-dark-grey {border-color: @darkGrey}
-
-//  blue
-.font-light-blue {color: @lightBlue}
-.bg-light-blue {background-color: @lightBlue}
-.border-light-blue {border-color: @lightBlue}
-
-.font-blue {color: @blue}
-.bg-blue {background-color: @blue}
-.border-blue {border-color: @blue}
-
-.font-dark-blue {color: @darkBlue}
-.bg-dark-blue {background-color: @darkBlue}
-.border-dark-blue {border-color: @darkBlue}
-
-//  green
-.font-light-green {color: @lightGreen}
-.bg-light-green {background-color: @lightGreen}
-.border-light-green {border-color: @lightGreen}
-
-.font-green {color: @green}
-.bg-green {background-color: @green}
-.border-green {border-color: @green}
-
-.font-dark-green {color: @darkGreen}
-.bg-dark-green {background-color: @darkGreen}
-.border-dark-green {border-color: @darkGreen}
-
-//  red
-.font-light-red {color: @lightRed}
-.bg-light-red {background-color: @lightRed}
-.border-light-red {border-color: @lightRed}
-
-.font-red {color: @red}
-.bg-red {background-color: @red}
-.border-red {border-color: @red}
-
-.font-dark-red {color: @darkRed}
-.bg-dark-red {background-color: @darkRed}
-.border-dark-red {border-color: @darkRed}
-
-//  yellow
-.font-light-yellow {color: @lightYellow}
-.bg-light-yellow {background-color: @lightYellow}
-.border-light-yellow {border-color: @lightYellow}
-
-.font-yellow {color: @yellow}
-.bg-yellow {background-color: @yellow}
-.border-yellow {border-color: @yellow}
-
-.font-dark-yellow {color: @darkYellow}
-.bg-dark-yellow {background-color: @darkYellow}
-.border-dark-yellow {border-color: @darkYellow}
-
-//  white
-.font-white {color: @white}
-.bg-white {background-color: @white}
-.border-white {border-color: @white}
-
-//  black
-.font-black {color: @black}
-.bg-black {background-color: @black}
-.border-black {border-color: @black}
-
-
-/* block content */
-.b-content {
-  padding: 30px 30px;
-}
-.b-content__item {
-  float: left;
-  width: 33%;
-  padding-left: 110px;
-  font-size: 18px;
-  height: 81px;
-  line-height: 81px;
-}
-.b-content__item_grunt {
-  background: url(../../../img/grunt.png) no-repeat 20px 0;
-}
-.b-content__item_less {
-  background: url(../../../img/less.png) no-repeat 0 0;
-}
-.b-content__item_bem {
-  background: url(../../../img/bem.png) no-repeat 20px 0;
-}
-/* block header */
-.b-header {
-  width: 100%;
-  height: 100px;
-}
-.b-header__logo {
-  margin-left: 30px;
-  height: 100px;
-  line-height: 100px;
-  font-size: 26px;
-  float: left;
-}
-.b-header__desc {
-  margin-right: 30px;
-  padding-top: 30px;
-  font-size: 14px;
-  float: right;
-  text-align: right;
 }

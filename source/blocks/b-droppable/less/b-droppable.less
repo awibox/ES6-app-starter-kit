@@ -1,0 +1,52 @@
+@b-droppable-widht: 960px;
+@b-droppable-indent: 5px;
+@b-droppable__block-width:150px;
+@b-droppable__block-height: 90px;
+
+.b-droppable {
+  width: @b-droppable-widht;
+  height: 500px;
+  background: #fff;
+  position: relative;
+  margin: 0 auto;
+}
+.b-droppable__block {
+  width: @b-droppable__block-width;
+  height: @b-droppable__block-height;
+  background: #f5f5f5;
+  float: left;
+  margin:@b-droppable-indent;
+  z-index: 5;
+}
+
+.b-droppable__place {
+  width: @b-droppable__block-width;
+  height: @b-droppable__block-height;
+  background: #eee;
+  position: absolute;
+  z-index: 3;
+  &.b-droppable__place-1 {
+    bottom: @b-droppable-indent;
+    left:(@b-droppable-widht - @b-droppable-indent*2 - @b-droppable__block-width*3)/2;
+  }
+  &.b-droppable__place-2 {
+    bottom: @b-droppable-indent;
+    left:(@b-droppable-widht - @b-droppable__block-width)/2;
+  }
+  &.b-droppable__place-3 {
+    bottom: @b-droppable-indent;
+    left:(@b-droppable-widht - @b-droppable__block-width)/2 + @b-droppable__block-width + @b-droppable-indent;
+  }
+  &.b-droppable__place-4 {
+    bottom: @b-droppable__block-height + @b-droppable-indent*2;
+    left:(@b-droppable-widht - @b-droppable-indent - @b-droppable__block-width*2)/2;
+  }
+  &.b-droppable__place-5 {
+    bottom: @b-droppable__block-height + @b-droppable-indent*2;
+    left:(@b-droppable-widht - @b-droppable-indent - @b-droppable__block-width*2)/2 + @b-droppable__block-width + @b-droppable-indent;
+  }
+  &.b-droppable__place-6 {
+    bottom: @b-droppable__block-height*2 + @b-droppable-indent*3;
+    left:(@b-droppable-widht - @b-droppable__block-width)/2;
+  }
+}

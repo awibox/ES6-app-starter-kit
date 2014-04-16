@@ -3,26 +3,42 @@
 <head>
     <meta charset="utf-8">
     <!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-    <title>Title of page</title>
+    <title>BEM Builder</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="description" content=""/>
     <meta name="keywords" content=""/>
     <link rel="shortcut icon" href="/favicon.ico"/>
     <link rel="stylesheet" href="css/styles.css"/>
     <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/plugins.js"></script>
+    <script type="text/javascript" src="js/scripts.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Roboto:300,400,700&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
 </head>
-<body class="b-body">
-    <div class="wrapper">
-        <div class="b-header clearfix">
-            <div class="b-header__logo">Default Project</div>
-            <div class="b-header__desc">Заготовка для новых проектов.<br>Проект собирается с помощью grunt.js.</div>
-        </div>
-        <div class="b-content clearfix">
-            <div class="b-content__item b-content__item_grunt">Grunt.js</div>
-            <div class="b-content__item b-content__item_less">less css</div>
-            <div class="b-content__item b-content__item_bem">BEM methodology</div>
+<body class="b-page">
+    <div class="b-header">
+        <div class="b-wrapper clearfix">
+            <div class="b-header__name">BEM Builder</div>
+            <div class="b-header__author">awibox</div>
         </div>
     </div>
-    <script type="text/javascript" src="js/scripts.js"></script>
+    <div class="b-content">
+        <div class="b-wrapper">
+            <div class="b-droppable">
+                <div class="b-droppable__block b-droppable__block-1">bem</div>
+                <div class="b-droppable__block b-droppable__block-2">grunt.js</div>
+                <div class="b-droppable__block b-droppable__block-3">less</div>
+                <div class="b-droppable__block b-droppable__block-4">js</div>
+                <div class="b-droppable__block b-droppable__block-5">images</div>
+                <div class="b-droppable__block b-droppable__block-6">html</div>
+                <div class="b-droppable__place b-droppable__place-1"><p>Поставь сюда блок css</p></div>
+                <div class="b-droppable__place b-droppable__place-2"><p>Поставь сюда блок</p></div>
+                <div class="b-droppable__place b-droppable__place-3"><p>Поставь сюда блок</p></div>
+                <div class="b-droppable__place b-droppable__place-4"><p>Поставь сюда блок</p></div>
+                <div class="b-droppable__place b-droppable__place-5"><p>Поставь сюда блок</p></div>
+                <div class="b-droppable__place b-droppable__place-6"><p>Поставь сюда блок</p></div>
+
+            </div>
+        </div>
+    </div>
 </body>
 </html>

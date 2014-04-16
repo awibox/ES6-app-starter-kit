@@ -17,7 +17,7 @@ module.exports = function (grunt) {
 
         concat: {
             less: {
-                src: ['source/build/variables.less','source/build/main.less','source/build/theme.less','source/blocks/**/*.less'],
+                src: ['source/build/theme.less','source/build/main.less','source/blocks/**/*.less'],
                 dest: 'source/less/build.less'
             },
             jquery: {
@@ -107,7 +107,7 @@ module.exports = function (grunt) {
         watch: {
             scripts: {
                 files: ['source/**/*.js'],
-                tasks: ['concat', 'uglify', 'removelogging']
+                tasks: ['concat', 'uglify']
             },
             less: {
                 files: ['source/**/*.less'],
@@ -140,4 +140,5 @@ module.exports = function (grunt) {
 
     grunt.registerTask('default', ['htmlmin','concat','less','cssmin','uglify','clean','copy','imagemin','watch']);
     grunt.registerTask('production', ['htmlmin','concat','less','cssmin','uglify','clean','copy','imagemin']);
+    grunt.registerTask('add', ['concat','less','cssmin','uglify']);
 };

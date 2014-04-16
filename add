@@ -9,3 +9,5 @@ do
         touch source/blocks/$1/$i/$1.$i
     fi
 done
+
+grunt add

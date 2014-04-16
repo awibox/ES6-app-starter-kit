@@ -1,4 +1,3 @@
-
 $(function () {
     $(".b-droppable__block-1").draggable();
     $(".b-droppable__place-1").droppable({
@@ -49,4 +48,3 @@ $(function () {
         }
     });
 });
-
