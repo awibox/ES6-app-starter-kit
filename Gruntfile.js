@@ -62,10 +62,6 @@ module.exports = function (grunt) {
                 stripBanners: true,
                 banner: '/* <%= pkg.name %> - v<%= pkg.version %> - <%= grunt.template.today("yyyy-mm-dd") %> */\n'
             },
-            scripts: {
-                src: 'source/js/scripts.js',
-                dest: 'public_html/js/scripts.js'
-            },
             jquery: {
                 src: 'source/js/jquery.js',
                 dest: 'public_html/js/jquery.js'
@@ -73,12 +69,16 @@ module.exports = function (grunt) {
             plugins: {
                 src: 'source/js/plugins.js',
                 dest: 'public_html/js/plugins.js'
+            },
+            scripts: {
+                src: 'source/js/scripts.js',
+                dest: 'public_html/js/scripts.js'
             }
         },
 
         clean: {
             images: {
-                src: ["public_html/img/"]
+                src: ["public_html/img/", "source/img"]
             }
         },
 
@@ -106,8 +106,16 @@ module.exports = function (grunt) {
 
         watch: {
             scripts: {
-                files: ['source/**/*.js'],
-                tasks: ['concat', 'uglify']
+                files: ['source/blocks/**/*.js'],
+                tasks: ['concat:scripts', 'uglify:scripts']
+            },
+            jquery: {
+                files: ['source/build/jquery/*.js'],
+                tasks: ['concat:jquery', 'uglify:jquery']
+            },
+            plugins: {
+                files: ['source/build/plugins/*.js'],
+                tasks: ['concat:plugins', 'uglify:plugins']
             },
             less: {
                 files: ['source/**/*.less'],
@@ -120,10 +128,6 @@ module.exports = function (grunt) {
             html: {
                 files: ['source/*.html'],
                 tasks: ['htmlmin']
-            },
-            fonts: {
-                files: ['source/fonts/*'],
-                tasks: ['clean:fonts', 'copy']
             }
         }
     });
