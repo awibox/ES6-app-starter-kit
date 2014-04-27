@@ -142,7 +142,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-contrib-watch');
 
-    grunt.registerTask('default', ['htmlmin','concat','less','cssmin','uglify','clean','copy','imagemin','watch']);
-    grunt.registerTask('production', ['htmlmin','concat','less','cssmin','uglify','clean','copy','imagemin']);
+    grunt.registerTask('default', ['htmlmin','concat','less','cssmin','uglify','clean','copy','imagemin']);
+    grunt.registerTask('dev', ['htmlmin','concat','less','cssmin','uglify','clean','copy','imagemin','watch']);
     grunt.registerTask('add', ['concat','less','cssmin','uglify']);
 };
