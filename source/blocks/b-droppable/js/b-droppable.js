@@ -56,10 +56,12 @@ $(function() {
     var indicationCount = 0;
     var indication = function() {
         indicationCount = indicationCount + 1;
-        var indicationLoad = 165/6 * indicationCount
+        var indicationLoad = 165/6 * indicationCount;
         $('.b-progress-bar__load-pct-count').html(indicationCount);
         $('.b-progress-bar__load').animate({width:indicationLoad}, 1000);
         if(indicationCount == 6) {
+            $('.b-droppable__place').fadeOut(1000)
+            $('.b-droppable__block').fadeOut(1000)
             $('.b-droppable__completed').fadeIn(1000);
         }
 
