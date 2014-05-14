@@ -144,5 +144,5 @@ module.exports = function (grunt) {
 
     grunt.registerTask('default', ['htmlmin','concat','less','cssmin','uglify','clean','copy','imagemin']);
     grunt.registerTask('dev', ['htmlmin','concat','less','cssmin','uglify','clean','copy','imagemin','watch']);
-    grunt.registerTask('add', ['concat','less','cssmin','uglify']);
+    grunt.registerTask('add', ['concat','less','cssmin','uglify','watch']);
 };
