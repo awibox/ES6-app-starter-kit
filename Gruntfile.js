@@ -14,7 +14,20 @@ module.exports = function (grunt) {
                 }
             }
         },
-
+        jade: {
+            compile: {
+                files: [{
+                    cwd: 'source',
+                    src: ['**/*.jade', '!partials/**/*.jade'],
+                    dest: 'dest',
+                    expand: true,
+                    ext: '.html'
+                }]
+            },
+            options: {
+                pretty: true
+            }
+        },
         concat: {
             less: {
                 src: ['source/build/theme.less','source/build/main.less','source/blocks/**/*.less'],
@@ -133,6 +146,7 @@ module.exports = function (grunt) {
     });
 
     grunt.loadNpmTasks('grunt-contrib-htmlmin');
+    grunt.loadNpmTasks('grunt-contrib-jade');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
