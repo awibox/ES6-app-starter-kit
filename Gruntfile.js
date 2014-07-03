@@ -132,7 +132,7 @@ module.exports = function (grunt) {
             },
             less: {
                 files: ['source/**/*.less'],
-                tasks: ['concat:less', 'less', 'cssmin']
+                tasks: ['concat:less', 'less', 'cssmin', 'clean:images', 'copy','imagemin']
             },
             image: {
                 files: ['source/blocks/**/*.{png,jpg,gif}'],
