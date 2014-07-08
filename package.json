@@ -1,18 +1,25 @@
 {
     "name": "bem-builder",
     "version": "1.0.0",
+    "description": "Сборщик проектов",
     "devDependencies": {
-        "grunt": "~0.4.2",
-        "grunt-contrib-concat": "latest",
-        "grunt-contrib-uglify": "latest",
-        "grunt-contrib-less": "latest",
-        "grunt-contrib-cssmin" : "latest",
-        "grunt-contrib-imagemin" : "0.3.0",
-        "grunt-contrib-htmlmin" : "latest",
-        "grunt-contrib-jade": "~0.9.0",
-        "grunt-contrib-clean" : "latest",
-        "grunt-contrib-copy" : "latest",
-        "grunt-contrib-watch": "latest",
-        "grunt-shell": "latest"
+        "gulp": "latest",
+        "gulp-jade": "latest",
+        "gulp-less": "latest",
+        "gulp-concat": "latest",
+        "gulp-livereload": "latest",
+        "gulp-myth": "latest",
+        "gulp-changed": "latest",
+        "gulp-imagemin": "latest",
+        "gulp-csso": "latest",
+        "gulp-notify": "latest",
+        "gulp-open": "latest",
+        "gulp-uglify": "latest",
+        "connect": "latest",
+        "watchify": "latest",
+        "tiny-lr": "latest"
+    },
+    "dependencies": {
+        "jquery": "~2.1.0"
     }
 }
