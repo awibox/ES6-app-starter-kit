@@ -57,6 +57,24 @@ input {vertical-align: middle;}
   box-sizing: border-box;
 }
 
+.border-radius (@borderRadius){
+  -webkit-border-radius:  @borderRadius;
+  -moz-border-radius:     @borderRadius;
+  -ms-border-radius:      @borderRadius;
+  -o-border-radius:       @borderRadius;
+  -khtml-border-radius:   @borderRadius;
+  border-radius:          @borderRadius;
+}
+
+.gradient (@first-color, @second-color) {
+  background: @first-color;
+  background-image: -moz-linear-gradient(top, @first-color, @second-color);
+  background-image: -ms-linear-gradient(top, @first-color, @second-color);
+  background-image: -o-linear-gradient(top, @first-color, @second-color);
+  background-image: -webkit-gradient(linear, center top, center bottom, from(@first-color), to(@second-color));
+  background-image: -webkit-linear-gradient(top, @first-color, @second-color);
+  background-image: linear-gradient(top, @first-color, @second-color);
+}
 .b-content {
   position: relative;
   min-height: 400px;

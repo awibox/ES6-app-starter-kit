@@ -18,7 +18,13 @@ var concat = require('gulp-concat'); // Склейка файлов
 //        .pipe(gulp.dest('./public/')) // Записываем собранные файлы
 //        .pipe(livereload(server)); // даем команду на перезагрузку страницы
 //});
-
+gulp.task('less', function() {
+    gulp.src(['./source/build/theme.less','./source/build/main.less','./source/blocks/**/*.less'])
+        .pipe(concat('build.less'))
+        .pipe(gulp.dest('./source/less'))
+        .pipe(less('style.css'))
+        .pipe(gulp.dest('./public/css'))
+});
 
 
 // Собираем JS
@@ -57,6 +63,7 @@ gulp.task('images', function() {
 gulp.task('default', function() {
     // Предварительная сборка проекта
 //    gulp.run('jade');
+    gulp.run('less');
     gulp.run('images');
     gulp.run('js');
 
