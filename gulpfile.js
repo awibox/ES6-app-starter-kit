@@ -18,11 +18,11 @@ var concat = require('gulp-concat'); // Склейка файлов
 //        .pipe(gulp.dest('./public/')) // Записываем собранные файлы
 //        .pipe(livereload(server)); // даем команду на перезагрузку страницы
 //});
+
 gulp.task('less', function() {
     gulp.src(['./source/build/theme.less','./source/build/main.less','./source/blocks/**/*.less'])
-        .pipe(concat('build.less'))
-        .pipe(gulp.dest('./source/less'))
-        .pipe(less('style.css'))
+        .pipe(concat('style.less'))
+        .pipe(less())
         .pipe(gulp.dest('./public/css'))
 });
 
@@ -31,18 +31,15 @@ gulp.task('less', function() {
 gulp.task('js', function() {
     gulp.src(['./source/build/jquery/*.js'])
         .pipe(concat('jquery.js'))
-        .pipe(gulp.dest('./source/js'))
-        .pipe(uglify('jquery.js'))
+        .pipe(uglify())
         .pipe(gulp.dest('./public/js'))
     gulp.src(['./source/build/library/*.js'])
         .pipe(concat('plugins.js'))
-        .pipe(gulp.dest('./source/js'))
-        .pipe(uglify('plugins.js'))
+        .pipe(uglify())
         .pipe(gulp.dest('./public/js'))
     gulp.src(['./source/blocks/**/*.js'])
         .pipe(concat('scripts.js'))
-        .pipe(gulp.dest('./source/js'))
-        .pipe(uglify('scripts.js'))
+        .pipe(uglify())
         .pipe(gulp.dest('./public/js'))
 });
 
@@ -56,7 +53,6 @@ gulp.task('images', function() {
                 progressive: true
         }))
         .pipe(gulp.dest('./public/img'))
-
 });
 
 // Запуск сервера разработки gulp watch
