@@ -5,8 +5,6 @@ var imagemin = require('gulp-imagemin'); // Минификация изобра�
 var uglify = require('gulp-uglify'); // Минификация JS
 var concat = require('gulp-concat'); // Склейка файлов
 
-// Собираем Stylus
-
 // Собираем html из Jade
 
 //gulp.task('jade', function() {
@@ -56,25 +54,10 @@ gulp.task('images', function() {
 });
 
 // Запуск сервера разработки gulp watch
-gulp.task('default', function() {
-    // Предварительная сборка проекта
-//    gulp.run('jade');
-    gulp.run('less');
-    gulp.run('images');
-    gulp.run('js');
-
-//    gulp.watch('assets/template/**/*.jade', function() {
-//        gulp.run('jade');
-//    });
-    gulp.watch('source/build/**/*.js', function() {
-        gulp.run('js');
-    });
-    gulp.watch('source/blocks/**/*.js', function() {
-        gulp.run('js');
-    });
-    gulp.watch('source/img/**/*', function() {
-        gulp.run('images');
-    });
-
-
+gulp.task('default', ['less', 'js', 'images'], function() {
+    gulp.watch('source/**/*.less', ['less']);
+    gulp.watch('source/**/*.js', ['js']);
+    gulp.watch('source/img/**/*', ['images']);
+    gulp.watch('source/blocks/**/img/*', ['images']);
+//    gulp.watch('source/build/**/*.js', ['js']);
 });
