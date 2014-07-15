@@ -52,10 +52,10 @@ gulp.task('images', function() {
 });
 
 // Запуск сервера разработки gulp watch
-gulp.task('default', ['less', 'js', 'images'], function() {
+gulp.task('default', ['jade','less', 'js', 'images'], function() {
+    gulp.watch('source/jade/**/*.jade', ['jade']);
     gulp.watch('source/**/*.less', ['less']);
     gulp.watch('source/**/*.js', ['js']);
     gulp.watch('source/img/**/*', ['images']);
     gulp.watch('source/blocks/**/img/*', ['images']);
-//    gulp.watch('source/build/**/*.js', ['js']);
 });
