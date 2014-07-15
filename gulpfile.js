@@ -7,19 +7,17 @@ var concat = require('gulp-concat'); // Склейка файлов
 
 // Собираем html из Jade
 
-//gulp.task('jade', function() {
-//    gulp.src(['./assets/template/*.jade', '!./assets/template/_*.jade'])
-//        .pipe(jade({
-//            pretty: true
-//        }))  // Собираем Jade только в папке ./assets/template/ исключая файлы с _*
-//        .on('error', console.log) // Если есть ошибки, выводим и продолжаем
-//        .pipe(gulp.dest('./public/')) // Записываем собранные файлы
-//        .pipe(livereload(server)); // даем команду на перезагрузку страницы
-//});
+gulp.task('jade', function() {
+    gulp.src(['./source/jade/*.jade'])
+        .pipe(jade({
+            pretty: true
+        }))
+        .pipe(gulp.dest('./public/'))
+});
 
 gulp.task('less', function() {
     gulp.src(['./source/build/theme.less','./source/build/main.less','./source/blocks/**/*.less'])
-        .pipe(concat('style.less'))
+        .pipe(concat('styles.less'))
         .pipe(less())
         .pipe(gulp.dest('./public/css'))
 });

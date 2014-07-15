@@ -7,19 +7,9 @@
         "gulp-jade": "latest",
         "gulp-less": "latest",
         "gulp-concat": "latest",
-//        "gulp-livereload": "latest",
-//        "gulp-myth": "latest",
-//        "gulp-changed": "latest",
         "gulp-imagemin": "latest",
-//        "gulp-csso": "latest",
-//        "gulp-notify": "latest",
-//        "gulp-open": "latest",
+        "gulp-notify": "latest",
         "gulp-uglify": "latest",
-//        "connect": "latest",
-        "watchify": "latest",
-//        "tiny-lr": "latest"
-    },
-    "dependencies": {
-        "jquery": "~2.1.0"
+        "watchify": "latest"
     }
 }
