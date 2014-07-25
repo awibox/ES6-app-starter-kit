@@ -10,9 +10,9 @@
         "gulp-imagemin": "latest",
         "gulp-notify": "latest",
         "gulp-uglify": "latest",
+        "gulp-clean": "latest",
         "globby": "latest",
         "watchify": "latest",
-        "copy": "latest",
         "imagemin-pngcrush": "latest"
     }
 }

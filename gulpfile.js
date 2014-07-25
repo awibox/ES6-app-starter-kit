@@ -7,6 +7,7 @@ var uglify = require('gulp-uglify');
 var notify = require('gulp-notify');
 var concat = require('gulp-concat');
 var globby = require('globby');
+var clean = require('gulp-clean');
 
 function errorLog(err){
     gulp.src("./source")
@@ -45,17 +46,19 @@ gulp.task('js', function() {
         .pipe(gulp.dest('./public/js'))
 });
 
-gulp.task('images', function() {
-    globby("./source/blocks/*/img/**/*", function (err, paths) {
-        console.log(err)
-        console.log(paths)
+gulp.task('clean', function() {
+    gulp.src('./public/img')
+        .pipe(clean())
+});
+gulp.task('images', ['clean'], function() {
+    globby("./source/blocks/*/img/*", function (err, paths) {
         gulp.src(paths)
+            .pipe(gulp.dest('./public/img'))
             .pipe(imagemin({
                 progressive: true,
                 svgoPlugins: [{removeViewBox: false}],
                 use: [pngcrush()]
             }))
-            .pipe(gulp.dest('./public/img'))
     });
 });
 
@@ -65,5 +68,5 @@ gulp.task('default', ['jade','less', 'js', 'images'], function() {
     gulp.watch('source/**/*.jade', ['jade']);
     gulp.watch('source/**/*.less', ['less']);
     gulp.watch('source/**/*.js', ['js']);
-    gulp.watch('source/blocks/**/img/*', ['images']);
+    gulp.watch('source/blocks/*/img/*', ['images']);
 });
