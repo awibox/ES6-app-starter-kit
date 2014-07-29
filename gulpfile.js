@@ -14,46 +14,66 @@ function errorLog(err){
         .pipe(notify(err));
 }
 
+var source = {
+    path: './source/',
+    jade: './source/*.jade',
+    less: ['./source/build/theme.less','./source/build/main.less','./source/blocks/**/*.less'],
+    jquery: './source/build/jquery/*.js',
+    library: './source/build/library/*.js',
+    js: './source/blocks/**/*.js',
+    images: './source/blocks/*/img/*',
+    wjade: 'source/**/*.jade',
+    wless: 'source/**/*.less',
+    wjs: 'source/**/*.js'
+
+};
+var build = {
+    path: './public/',
+    css: './public/css',
+    js: './public/js',
+    images: './public/img'
+};
+
 gulp.task('jade', function() {
-    gulp.src(['./source/*.jade'])
+    gulp.src(source.jade)
         .pipe(jade({
             pretty: true
         }))
-        .pipe(gulp.dest('./public/'))
+        .pipe(gulp.dest(build.path))
 });
 
 gulp.task('less', function() {
-    gulp.src(['./source/build/theme.less','./source/build/main.less','./source/blocks/**/*.less'])
+    gulp.src(source.less)
         .pipe(concat('styles.less'))
         .pipe(less().on('error', function(err){
             errorLog(err);
         }))
-        .pipe(gulp.dest('./public/css'))
+        .pipe(gulp.dest(build.css))
 });
 
 gulp.task('js', function() {
-    gulp.src(['./source/build/jquery/*.js'])
+    gulp.src(source.jquery)
         .pipe(concat('jquery.js'))
         .pipe(uglify())
-        .pipe(gulp.dest('./public/js'))
-    gulp.src(['./source/build/library/*.js'])
+        .pipe(gulp.dest(build.js))
+    gulp.src(source.library)
         .pipe(concat('plugins.js'))
         .pipe(uglify())
-        .pipe(gulp.dest('./public/js'))
-    gulp.src(['./source/blocks/**/*.js'])
+        .pipe(gulp.dest(build.js))
+    gulp.src(source.js)
         .pipe(concat('scripts.js'))
         .pipe(uglify())
-        .pipe(gulp.dest('./public/js'))
+        .pipe(gulp.dest(build.js))
 });
 
 gulp.task('clean', function() {
-    gulp.src('./public/img')
+    gulp.src(build.images)
         .pipe(clean())
 });
 gulp.task('images', ['clean'], function() {
-    globby("./source/blocks/*/img/*", function (err, paths) {
+    globby(source.images, function (err, paths) {
         gulp.src(paths)
-            .pipe(gulp.dest('./public/img'))
+            .pipe(gulp.dest(build.images))
             .pipe(imagemin({
                 progressive: true,
                 svgoPlugins: [{removeViewBox: false}],
@@ -63,10 +83,10 @@ gulp.task('images', ['clean'], function() {
 });
 
 gulp.task('default', ['jade','less', 'js', 'images'], function() {
-    gulp.src("./source")
-        .pipe(notify("Done, without errors. Running watch."));
-    gulp.watch('source/**/*.jade', ['jade']);
-    gulp.watch('source/**/*.less', ['less']);
-    gulp.watch('source/**/*.js', ['js']);
-    gulp.watch('source/blocks/*/img/*', ['images']);
+    gulp.src(source.path)
+        .pipe(notify("Running watch"));
+    gulp.watch(source.wjade, ['jade']);
+    gulp.watch(source.wless, ['less']);
+    gulp.watch(source.wjs, ['js']);
+    gulp.watch(source.images, ['images']);
 });
