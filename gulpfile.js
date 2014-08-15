@@ -17,7 +17,7 @@ function errorLog(err){
 var source = {
     path: './source/',
     jade: './source/*.jade',
-    less: ['./source/build/theme.less','./source/build/main.less','./source/blocks/**/*.less'],
+    less: ['./source/less/build.less','./source/blocks/**/*.less'],
     jquery: './source/build/jquery/*.js',
     library: './source/build/library/*.js',
     js: './source/blocks/**/*.js',
