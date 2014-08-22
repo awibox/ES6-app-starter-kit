@@ -27,6 +27,7 @@ var source = {
     wjs: 'source/**/*.js'
 
 };
+
 var build = {
     path: './public/',
     css: './public/css',
@@ -70,6 +71,7 @@ gulp.task('clean', function() {
     gulp.src(build.images)
         .pipe(clean())
 });
+
 gulp.task('images', ['clean'], function() {
     globby(source.images, function (err, paths) {
         gulp.src(paths)
