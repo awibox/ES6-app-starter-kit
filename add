@@ -10,4 +10,12 @@ do
     fi
 done
 
-grunt add
+if [ !$2 ];then
+    for i in js less img
+    do
+        mkdir source/blocks/$1/$i
+        if [ $i != "img" ];then
+            touch source/blocks/$1/$i/$1.$i
+        fi
+    done
+fi
