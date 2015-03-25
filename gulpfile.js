@@ -1,5 +1,4 @@
 var gulp = require('gulp');
-var jade = require('gulp-jade');
 var less = require('gulp-less');
 var imagemin = require('gulp-imagemin');
 var pngcrush = require('imagemin-pngcrush');
@@ -16,13 +15,11 @@ function errorLog(err){
 
 var source = {
     path: './source/',
-    jade: './source/*.jade',
     less: ['./source/less/build.less','./source/blocks/**/*.less'],
     jquery: './source/build/jquery/*.js',
     library: './source/build/library/*.js',
     js: './source/blocks/**/*.js',
     images: './source/blocks/*/img/*',
-    wjade: 'source/**/*.jade',
     wless: 'source/**/*.less',
     wjs: 'source/**/*.js'
 
@@ -34,14 +31,6 @@ var build = {
     js: './public/js',
     images: './public/img'
 };
-
-gulp.task('jade', function() {
-    gulp.src(source.jade)
-        .pipe(jade({
-            pretty: true
-        }))
-        .pipe(gulp.dest(build.path))
-});
 
 gulp.task('less', function() {
     gulp.src(source.less)
@@ -84,10 +73,9 @@ gulp.task('images', ['clean'], function() {
     });
 });
 
-gulp.task('default', ['jade','less', 'js', 'images'], function() {
+gulp.task('default', ['less', 'js', 'images'], function() {
     gulp.src(source.path)
         .pipe(notify("Running watch"));
-    gulp.watch(source.wjade, ['jade']);
     gulp.watch(source.wless, ['less']);
     gulp.watch(source.wjs, ['js']);
     gulp.watch(source.images, ['images']);
