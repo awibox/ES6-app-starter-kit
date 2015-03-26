@@ -15,11 +15,11 @@ function errorLog(err){
 
 var source = {
     path: './source/',
-    less: ['./source/less/build.less','./source/blocks/**/*.less'],
-    jquery: './source/build/jquery/*.js',
-    library: './source/build/library/*.js',
+    less: ['./source/less/javascript.less','./source/blocks/**/*.less'],
+    jquery: './source/javascript/jquery/*.js',
+    library: './source/javascript/library/*.js',
     js: './source/blocks/**/*.js',
-    images: './source/blocks/*/img/*',
+    images: './source/img/*',
     wless: 'source/**/*.less',
     wjs: 'source/**/*.js'
 
