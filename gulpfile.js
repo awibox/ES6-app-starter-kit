@@ -15,10 +15,10 @@ function errorLog(err){
 
 var source = {
     path: './source/',
-    less: ['./source/less/javascript.less','./source/blocks/**/*.less'],
-    jquery: './source/javascript/jquery/*.js',
-    library: './source/javascript/library/*.js',
-    js: './source/blocks/**/*.js',
+    html: './source/*.html',
+    less: ['./source/less/build.less','./source/blocks/**/*.less'],
+    library: './source/js/*.js',
+    js: './source/blocks/*.js',
     images: './source/img/*',
     wless: 'source/**/*.less',
     wjs: 'source/**/*.js'
@@ -26,11 +26,16 @@ var source = {
 };
 
 var build = {
-    path: './public/',
-    css: './public/css',
-    js: './public/js',
-    images: './public/img'
+    path: './public_html/',
+    css: './public_html/css',
+    js: './public_html/js',
+    images: './public_html/img'
 };
+
+gulp.task('html', function() {
+    gulp.src(source.html)
+        .pipe(gulp.dest(build.path))
+});
 
 gulp.task('less', function() {
     gulp.src(source.less)
@@ -42,12 +47,7 @@ gulp.task('less', function() {
 });
 
 gulp.task('js', function() {
-    gulp.src(source.jquery)
-        .pipe(concat('jquery.js'))
-        .pipe(uglify())
-        .pipe(gulp.dest(build.js))
     gulp.src(source.library)
-        .pipe(concat('plugins.js'))
         .pipe(uglify())
         .pipe(gulp.dest(build.js))
     gulp.src(source.js)
@@ -73,9 +73,10 @@ gulp.task('images', ['clean'], function() {
     });
 });
 
-gulp.task('default', ['less', 'js', 'images'], function() {
+gulp.task('default', ['html', 'less', 'js', 'images'], function() {
     gulp.src(source.path)
         .pipe(notify("Running watch"));
+    gulp.watch(source.html, ['html']);
     gulp.watch(source.wless, ['less']);
     gulp.watch(source.wjs, ['js']);
     gulp.watch(source.images, ['images']);
