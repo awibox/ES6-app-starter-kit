@@ -4,18 +4,20 @@ mkdir source/blocks/$1;
 
 for i in ${@:2}
 do
-    mkdir source/blocks/$1/$i;
-    if [ $i == "css" ] || [ $i == "js" ] || [ $i == "less" ];then
-        touch source/blocks/$1/$i/$1.$i
+    mkdir source/blocks/$1;
+    if [ $i == "js" ] || [ $i == "less" ];then
+        touch source/blocks/$1/$1.$i
     fi
 done
 
 if [ !$2 ];then
-    for i in js less img
+    for i in js less
     do
-        mkdir source/blocks/$1/$i
+        mkdir source/blocks/$1
         if [ $i != "img" ];then
-            touch source/blocks/$1/$i/$1.$i
+            touch source/blocks/$1/$1.$i
         fi
     done
 fi
+
+gulp

@@ -9,34 +9,20 @@ var globby = require('globby');
 var clean = require('gulp-clean');
 
 function errorLog(err){
-    gulp.src("./source")
+    gulp.src(settings.path)
         .pipe(notify(err));
 }
 
 var settings = {
-    less: ['./source/less/build.less','./source/blocks/**/*.less'],
-    css: './public_html/css',
-    js_src: ['./source/jquery/*.js','./source/js/*.js','./source/blocks/*.js'],
-    js_build: './public_html/js',
-    images: './public_html/img/*'
-};
-
-var source = {
     path: './source/',
     less: ['./source/less/build.less','./source/blocks/**/*.less'],
-    library: './source/js/*.js',
-    js: './source/blocks/*.js',
-    images: './source/img/*',
-    wless: 'source/**/*.less',
-    wjs: 'source/**/*.js'
-
-};
-
-var build = {
-    path: './public_html/',
     css: './public_html/css',
-    js: './public_html/js',
-    images: './public_html/img'
+    js_dir: './source/js/**/*.js',
+    js_src: './source/blocks/**/*.js',
+    js_build: './public_html/js',
+    images: './public_html/img/*',
+    watch_less: 'source/**/**/*.less',
+    watch_js: 'source/**/**/*.js'
 };
 
 gulp.task('less', function() {
@@ -51,13 +37,15 @@ gulp.task('less', function() {
 gulp.task('js', function() {
     gulp.src(settings.js_src)
         .pipe(concat('scripts.js'))
-        .pipe(uglify())
+        .pipe(uglify().on('error', function(err){
+            errorLog(err);
+        }))
         .pipe(gulp.dest(settings.js_build))
-});
-
-gulp.task('clean', function() {
-    gulp.src(build.images)
-        .pipe(clean())
+    gulp.src(settings.js_dir)
+        .pipe(uglify().on('error', function(err){
+            errorLog(err);
+        }))
+        .pipe(gulp.dest(settings.js_build))
 });
 
 gulp.task('imagemin', function() {
@@ -72,9 +60,9 @@ gulp.task('imagemin', function() {
 });
 
 gulp.task('default', ['less', 'js'], function() {
-    gulp.src(source.path)
+    gulp.src(settings.path)
         .pipe(notify("Running watch"));
-    gulp.watch(source.wless, ['less']);
-    gulp.watch(source.wjs, ['js']);
+    gulp.watch(settings.watch_less, ['less']);
+    gulp.watch(settings.watch_js, ['js']);
 });
 gulp.task('images', ['imagemin']);
