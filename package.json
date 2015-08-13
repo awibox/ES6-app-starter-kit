@@ -4,13 +4,11 @@
     "description": "Сборщик проектов",
     "devDependencies": {
         "gulp": "latest",
-        "gulp-jade": "latest",
         "gulp-less": "latest",
         "gulp-concat": "latest",
         "gulp-imagemin": "latest",
         "gulp-notify": "latest",
         "gulp-uglify": "latest",
-        "gulp-clean": "latest",
         "globby": "latest",
         "watchify": "latest",
         "imagemin-pngcrush": "latest"
