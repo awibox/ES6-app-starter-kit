@@ -1,6 +1,6 @@
 {
     "name": "bem-builder",
-    "version": "2.1",
+    "version": "2.1.0",
     "description": "Сборщик проектов",
     "devDependencies": {
         "gulp": "latest",
