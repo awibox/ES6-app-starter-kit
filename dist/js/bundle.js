@@ -42,9 +42,17 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
 	console.log('Hello Andrey!');
+
+	__webpack_require__(1)
+
+/***/ },
+/* 1 */
+/***/ function(module, exports) {
+
+	console.log('b-content.js loaded');
 
 /***/ }
 /******/ ]);
