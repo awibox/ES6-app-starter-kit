@@ -9,7 +9,16 @@ module.exports = {
         path: __dirname + "/dist",
         filename: "js/bundle.js"
     },
+    resolve: {
+        alias: {
+            jquery: "./dist/jquery.js"
+        }
+    },
     plugins: [
         //new webpack.optimize.UglifyJsPlugin()
+        new webpack.ProvidePlugin({
+            $: "jquery",
+            jQuery: "jquery"
+        })
     ]
 };

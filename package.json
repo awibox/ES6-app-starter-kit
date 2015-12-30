@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/awibox/bem-builder#readme",
   "devDependencies": {
+    "bower-webpack-plugin": "^0.1.9",
     "webpack": "^1.12.9"
   }
 }
