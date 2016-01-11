@@ -55,11 +55,6 @@ input {vertical-align: middle;}
 .clear {clear: both;}
 .clearfix:after {display: block;content: "";clear: both;}
 
-.box-sizing {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
 h1 {
   font-size:@bodyFontSize*2.4;
   font-weight: normal;
@@ -102,31 +97,14 @@ h6 {
   line-height: @bodyFontSize;
   padding-bottom:@defaultIndent/2;
 }
-.border-radius (@borderRadius, 5px){
-  -webkit-border-radius:  @borderRadius;
-  -moz-border-radius:     @borderRadius;
-  -ms-border-radius:      @borderRadius;
-  -o-border-radius:       @borderRadius;
-  -khtml-border-radius:   @borderRadius;
-  border-radius:          @borderRadius;
+
+.page {
+  background-color: @bodyBackground;
+  height: 100%;
 }
-.shadow (@shadow-param) {
-  -moz-box-shadow:    @shadow-param;
-  -webkit-box-shadow: @shadow-param;
-  -ms-box-shadow:     @shadow-param;
-  -o-box-shadow:      @shadow-param;
-  -khtml-box-shadow:  @shadow-param;
-  box-shadow:         @shadow-param;
-}
-.text-shadow (@text-shadow-param) {
-  text-shadow: @text-shadow-param;
-}
-.gradient (@first-color, @second-color) {
-  background: @first-color;
-  background-image: -moz-linear-gradient(top, @first-color, @second-color);
-  background-image: -ms-linear-gradient(top, @first-color, @second-color);
-  background-image: -o-linear-gradient(top, @first-color, @second-color);
-  background-image: -webkit-gradient(linear, center top, center bottom, from(@first-color), to(@second-color));
-  background-image: -webkit-linear-gradient(top, @first-color, @second-color);
-  background-image: linear-gradient(top, @first-color, @second-color);
+.wrapper {
+  width: @siteWidth;
+  min-width: @siteMinWidth;
+  max-width: @siteMaxWidth;
+  margin: 0 auto;
 }

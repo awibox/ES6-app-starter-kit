@@ -1,7 +1,7 @@
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 var settings = {
-    app: './index',
+    app: './app/app',
     sourceDir: '/source',
     publicDir: '/public',
     bundleApp: 'js/bundle.js',
