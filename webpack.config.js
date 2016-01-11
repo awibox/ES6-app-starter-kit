@@ -18,6 +18,14 @@ module.exports = {
                 test: /\.js/,
                 loader: 'babel',
                 exclude: /(node_modules|bower_components)/
+            },
+            {
+                test:   /\.css$/,
+                loader: 'style!css'
+            },
+            {
+                test: /\.less$/,
+                loader: 'style!css!less'
             }
         ]
     }
