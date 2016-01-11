@@ -1,11 +1,19 @@
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
+var settings = {
+    app: './index',
+    sourceDir: '/source',
+    publicDir: '/dist',
+    bundleApp: 'js/bundle.js',
+    bundleCSS: 'styles.css'
+};
+
 module.exports = {
-    context: __dirname + "/source",
-    entry: "./index",
+    context: __dirname + settings.sourceDir,
+    entry: settings.app,
     output: {
-        path: __dirname + "/dist",
-        filename: "js/bundle.js"
+        path: __dirname + settings.publicDir,
+        filename: settings.bundleApp
     },
     resolve: {
         modulesDirectories: ['node_modules']
@@ -41,6 +49,6 @@ module.exports = {
         ]
     },
     plugins: [
-        new ExtractTextPlugin('styles.css')
+        new ExtractTextPlugin(settings.bundleCSS)
     ]
 };
