@@ -1,6 +1,5 @@
-'use strict';
-
 var webpack = require('webpack');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
     context: __dirname + "/source",
@@ -12,6 +11,7 @@ module.exports = {
     resolve: {
         modulesDirectories: ['node_modules']
     },
+    devtool: 'source-map',
     module: {
         loaders: [
             {
@@ -21,13 +21,21 @@ module.exports = {
             },
             {
                 test:   /\.css$/,
-                loader: 'style!css'
+                loader: ExtractTextPlugin.extract(
+                    'style',
+                    'css'
+                )
             },
             {
                 test: /\.less$/,
-                loader: 'style!css!less'
+                loader: ExtractTextPlugin.extract(
+                    'css?sourceMap!' +
+                    'less?sourceMap'
+                )
             }
         ]
-    }
-
+    },
+    plugins: [
+        new ExtractTextPlugin('styles.css')
+    ]
 };

@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack:///webpack:///blocks/b-content/content.less"],"names":[],"mappings":";;;CAAA;EACE;EACA;CACD;AAAC;EACE;CAEH","file":"styles.css","sourcesContent":[".b-wrapper {\n  background: black;\n  color: #fff;\n  &.clearfix {\n    background: transparent;\n  }\n}\n\n\n/** WEBPACK FOOTER **\n ** webpack:///blocks/b-content/content.less\n **/"],"sourceRoot":""}
