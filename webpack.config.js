@@ -10,15 +10,16 @@ module.exports = {
         filename: "js/bundle.js"
     },
     resolve: {
-        alias: {
-            jquery: "./dist/jquery.js"
-        }
+        modulesDirectories: ['node_modules']
     },
-    plugins: [
-        //new webpack.optimize.UglifyJsPlugin()
-        new webpack.ProvidePlugin({
-            $: "jquery",
-            jQuery: "jquery"
-        })
-    ]
+    module: {
+        loaders: [
+            {
+                test: /\.js/,
+                loader: 'babel',
+                exclude: /(node_modules|bower_components)/
+            }
+        ]
+    }
+
 };

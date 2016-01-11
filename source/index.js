@@ -1,10 +1,8 @@
-var $ = require("jquery");
-window.jQuery = $;
-window.$ = $;
+import _ from 'lodash';
+import $ from 'jquery';
 
-
-console.log('Hello Andrey!');
-require('./blocks/b-content/b-content')
 $(function(){
-    $(".b-page").html('test');
+    $('.b-wrapper').css('background', 'red');
 });
+
+console.log(_.isEqual(1,2));
