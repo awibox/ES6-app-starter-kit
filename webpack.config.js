@@ -1,4 +1,3 @@
-var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
@@ -32,7 +31,13 @@ module.exports = {
                     'css?sourceMap!' +
                     'less?sourceMap'
                 )
+            },
+            {
+                test: /\.hbs/,
+                loader: 'handlebars-loader',
+                exclude: /(node_modules|bower_components)/
             }
+
         ]
     },
     plugins: [
