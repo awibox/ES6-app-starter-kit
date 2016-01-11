@@ -3,9 +3,9 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var settings = {
     app: './index',
     sourceDir: '/source',
-    publicDir: '/dist',
+    publicDir: '/public',
     bundleApp: 'js/bundle.js',
-    bundleCSS: 'styles.css'
+    bundleCSS: 'css/styles.css'
 };
 
 module.exports = {

@@ -1,4 +1,4 @@
 .idea
 node_modules
-public_html/css
-public_html/js
+public/css
+public/js
