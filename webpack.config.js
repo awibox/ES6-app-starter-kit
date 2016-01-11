@@ -30,13 +30,15 @@ module.exports = {
                 test:   /\.css$/,
                 loader: ExtractTextPlugin.extract(
                     'style',
-                    'css'
+                    'css',
+                    'autoprefixer?browsers=last 15 versions'
                 )
             },
             {
                 test: /\.less$/,
                 loader: ExtractTextPlugin.extract(
                     'css?sourceMap!' +
+                    'autoprefixer?browsers=last 15 versions!' +
                     'less?sourceMap'
                 )
             },
@@ -45,7 +47,6 @@ module.exports = {
                 loader: 'handlebars-loader',
                 exclude: /(node_modules|bower_components)/
             }
-
         ]
     },
     plugins: [
