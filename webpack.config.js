@@ -1,4 +1,5 @@
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var webpack = require('webpack');
 
 var settings = {
     app: './app/app',
@@ -50,6 +51,9 @@ module.exports = {
         ]
     },
     plugins: [
-        new ExtractTextPlugin(settings.bundleCSS)
+        new ExtractTextPlugin(settings.bundleCSS),
+        new webpack.ProvidePlugin({
+            $: 'jquery'
+        })
     ]
 };

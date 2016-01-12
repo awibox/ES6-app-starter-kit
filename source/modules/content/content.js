@@ -1,4 +1,3 @@
-import $ from 'jquery';
 import template from './content.hbs';
 import './content.less'
 
