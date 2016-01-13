@@ -6,7 +6,8 @@ var settings = {
     sourceDir: '/source',
     publicDir: '/public',
     bundleApp: 'js/main.js',
-    bundleCSS: 'css/styles.css'
+    bundleCSS: 'css/styles.css',
+    chunks: 'js/chunks/[name].js'
 };
 
 module.exports = {
@@ -15,12 +16,12 @@ module.exports = {
     output: {
         path: __dirname + settings.publicDir,
         filename: settings.bundleApp,
-        chunkFilename: "js/chunks/[name].js"
+        chunkFilename: settings.chunks
     },
     resolve: {
         modulesDirectories: ['node_modules']
     },
-    devtool: 'source-map',
+    devtool: 'inline-source-map',
     module: {
         loaders: [
             {
