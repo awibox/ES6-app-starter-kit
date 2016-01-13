@@ -15,6 +15,7 @@ module.exports = {
     entry: settings.app,
     output: {
         path: __dirname + settings.publicDir,
+        publicPath: '/bem-builder-webpack/public/',
         filename: settings.bundleApp,
         chunkFilename: settings.chunks
     },
@@ -49,6 +50,14 @@ module.exports = {
                 test: /\.hbs/,
                 loader: 'handlebars-loader',
                 exclude: /(node_modules|bower_components)/
+            },
+            {
+                test:   /\.(png|jpg|svg)$/,
+                loader: 'url?name=img/[path][name].[ext]&limit=4096'
+            },
+            {
+                test:   /\.(ttf|eot|woff|woff2)$/,
+                loader: 'file?name=fonts/[path][name].[ext]'
             }
         ]
     },
