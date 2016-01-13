@@ -5,7 +5,7 @@ var settings = {
     app: './app/app',
     sourceDir: '/source',
     publicDir: '/public',
-    bundleApp: 'js/bundle.js',
+    bundleApp: 'js/main.js',
     bundleCSS: 'css/styles.css'
 };
 
@@ -14,7 +14,8 @@ module.exports = {
     entry: settings.app,
     output: {
         path: __dirname + settings.publicDir,
-        filename: settings.bundleApp
+        filename: settings.bundleApp,
+        chunkFilename: "js/chunks/[name].js"
     },
     resolve: {
         modulesDirectories: ['node_modules']
