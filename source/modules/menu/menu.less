@@ -1,3 +1,31 @@
-.menu {
+.blackMenuClass {
+  background: #222;
+  .menu__item {
+    color: #999;
+    text-decoration: none;
+    &:hover {
+      color: #fff;
+    }
+    &_active {
+      color: #fff;
+      background: #000;
+    }
+  }
+}
 
+.menu {
+  float: left;
+  height: 50px;
+  box-sizing: border-box;
+  &__item {
+    padding: 15px;
+    float: left;
+  }
+  &_black {
+    .blackMenuClass;
+  }
+  &_black-right {
+    float: right;
+    .blackMenuClass;
+  }
 }

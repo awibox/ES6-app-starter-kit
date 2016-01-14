@@ -1,0 +1,22 @@
+.news {
+  &__items {
+    margin-left: -25px;
+    font-size: 0;
+  }
+  &:after {
+    display: block;
+    content: '';
+    clear: both;
+  }
+  &__item {
+    display: inline-block;
+    vertical-align: top;
+    width: 33.3%;
+    box-sizing: border-box;
+    padding: 30px 0 5px 25px;
+    font-size: 14px;
+    &-text {
+      padding-bottom: 20px;
+    }
+  }
+}

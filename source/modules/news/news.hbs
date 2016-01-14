@@ -1,0 +1,16 @@
+<div class="news {{modificator}}">
+    <div class="page-header">
+        <h2>{{title}}</h2>
+    </div>
+    <div class="news__items">
+        {{#each items}}
+            <div class="news__item {{modificator}}">
+                <h3>{{name}}</h3>
+                <div class="news__item-text">
+                    {{text}}
+                </div>
+                {{#if url}}<a class="btn btn-primary" href="{{url}}" role="button">View details »</a>{{/if}}
+            </div>
+        {{/each}}
+    </div>
+</div>

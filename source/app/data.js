@@ -1,35 +1,41 @@
 var data = {
-  "header": {
-    "name": "Bem builder"
+  header: {
+    name: "Bem builder"
   },
-  "content": {
-    "name": "Articles",
-    "articles": [
-      {
-        "title": "Article",
-        "body": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aliquid autem beatae blanditiis dignissimos, doloremque dolores, doloribus illum in incidunt libero nemo nostrum odio perferendis quidem recusandae repellat, sint soluta."
-      },
-      {
-        "title": "Article 2",
-        "body": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aliquid autem beatae blanditiis dignissimos, doloremque dolores, doloribus illum in incidunt libero nemo nostrum odio perferendis quidem recusandae repellat, sint soluta."
-      },
-      {
-        "title": "Article 3",
-        "body": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aliquid autem beatae blanditiis dignissimos, doloremque dolores, doloribus illum in incidunt libero nemo nostrum odio perferendis quidem recusandae repellat, sint soluta."
-      }
-    ]
-  },
-  "menu": {
-    "items": [{
-      "text": "Яйца",
-      "href": "#eggs"
+  menu: {
+    items: [{
+      text: "Яйца",
+      href: "#eggs"
     }, {
-      "text": "Мясо",
-      "href": "#meat"
+      text: "Мясо",
+      href: "#meat"
     }, {
-      "text": "99% еды - бамбук!",
-      "href": "#bamboo"
+      text: "99% еды - бамбук!",
+      href: "#bamboo"
     }]
+  },
+  news: {
+    title: "News",
+    items:  [{
+      name: "Safari bug warning!",
+      text: "Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris " +
+      "condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. " +
+      "Donec sed odio dui.",
+      url: "#news1"
+      },
+      {
+        name: "Header news",
+        text: "Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris " +
+        "condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. " +
+        "Donec sed odio dui."
+      },
+      {
+        name: "Big data news",
+        text: "Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris " +
+        "condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. " +
+        "Donec sed odio dui.",
+        url: "#news3"
+      }]
   }
 };
 module.exports = data;

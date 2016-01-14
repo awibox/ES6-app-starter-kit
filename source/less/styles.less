@@ -1,0 +1,50 @@
+.page {
+  height: 100%;
+}
+.wrapper {
+  width: @siteWidth;
+  min-width: @siteMinWidth;
+  max-width: @siteMaxWidth;
+  margin: 0 auto;
+  &:after {
+    display: block;
+    content: "";
+    clear: both;
+  }
+}
+.page-header {
+  padding-bottom: 9px;
+  border-bottom: 1px solid #eee;
+}
+
+.btn {
+  display: inline-block;
+  margin-bottom: 0;
+  font-weight: 400;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  border-radius: 4px;
+  user-select: none;
+  text-decoration: none;
+
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #428bca;
+  border-color: #357ebd;
+  &:hover,
+  &:visited,
+  &:active {
+    color: #fff;
+    background-color: #3276b1;
+    border-color: #285e8e;
+  }
+}
