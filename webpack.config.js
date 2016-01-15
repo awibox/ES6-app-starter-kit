@@ -7,7 +7,8 @@ var settings = {
     publicDir: '/public',
     bundleApp: 'js/main.js',
     bundleCSS: 'css/styles.css',
-    chunks: 'js/chunks/[name].js'
+    chunks: 'js/chunks/[name].js',
+    publicPath: '/bem-builder-webpack/public/'
 };
 
 module.exports = {
@@ -15,7 +16,7 @@ module.exports = {
     entry: settings.app,
     output: {
         path: __dirname + settings.publicDir,
-        publicPath: '/bem-builder-webpack/public/',
+        publicPath: settings.publicPath,
         filename: settings.bundleApp,
         chunkFilename: settings.chunks
     },
@@ -53,7 +54,10 @@ module.exports = {
             },
             {
                 test:   /\.(png|jpg|svg)$/,
-                loader: 'url?name=img/[path][name].[ext]&limit=4096'
+                loaders: [
+                    'url?name=img/[path][name].[ext]&limit=4096',
+                    'image-webpack?{progressive:true, optimizationLevel: 7, interlaced: false, pngquant:{quality: "65-90", speed: 4}}'
+                ]
             },
             {
                 test:   /\.(ttf|eot|woff|woff2)$/,
@@ -64,7 +68,9 @@ module.exports = {
     plugins: [
         new ExtractTextPlugin(settings.bundleCSS),
         new webpack.ProvidePlugin({
-            $: 'jquery'
+            $: 'jquery',
+            jQuery: 'jquery',
+            'window.jQuery': 'jquery'
         })
     ]
 };
