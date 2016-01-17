@@ -11,6 +11,8 @@ var settings = {
     publicPath: '/bem-builder-webpack/public/'
 };
 
+var NODE_ENV = process.env.NODE_ENV || 'development';
+
 module.exports = {
     context: __dirname + settings.sourceDir,
     entry: settings.app,
@@ -20,10 +22,11 @@ module.exports = {
         filename: settings.bundleApp,
         chunkFilename: settings.chunks
     },
+    watch: NODE_ENV == 'development',
     resolve: {
         modulesDirectories: ['node_modules']
     },
-    devtool: 'inline-source-map',
+    devtool: NODE_ENV == 'development' ? "inline-source-map" : null,
     module: {
         loaders: [
             {
@@ -74,3 +77,15 @@ module.exports = {
         })
     ]
 };
+if (NODE_ENV == 'production') {
+    module.exports.plugins.push(
+        new webpack.optimize.UglifyJsPlugin({
+            compress: {
+                // don't show unreachable variables etc
+                warnings:     false,
+                drop_console: true,
+                unsafe:       true
+            }
+        })
+    );
+}
