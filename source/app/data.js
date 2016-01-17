@@ -17,7 +17,14 @@ var data = {
   modal: {
     login: {
       title: 'Авторизация',
-      body: 'Отсутствует в данном проект'
+      label: {
+        email: 'Адрес e-mail',
+        pass: 'Пароль'
+      }
+    },
+    test: {
+      title: "Заголовок",
+      body: "Текст"
     }
   },
   news: {

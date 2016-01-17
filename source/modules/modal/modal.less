@@ -48,5 +48,15 @@
   &__body {
     position: relative;
     padding: 15px;
+    &:after {
+      clear: both;
+      display: block;
+      content: "";
+    }
+  }
+  &_login {
+    .modal__dialog {
+      width:350px;
+    }
   }
 }

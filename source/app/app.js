@@ -20,8 +20,13 @@ $(function(){
     $('.header__login').click(function(){
         require.ensure([], function(require) {
             let Modal = require('./../modules/modal/modal');
-
-            new Modal(data.modal.login, 'body', ".modal__login")
-        });
+            new Modal(data.modal.login, 'body', ".modal_login")
+        }, 'modal');
+    });
+    $('.btn_success').click(function() {
+        require.ensure([], function (require) {
+            let Modal = require('./../modules/modal/modal');
+            new Modal(data.modal.test, 'body', ".modal_test")
+        }, 'modal');
     });
 });

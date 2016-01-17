@@ -3,6 +3,8 @@
         <div class="modal__header">
             <span class="modal__close">×</span>
             <h4 class="modal__title">{{title}}</h4></div>
-        <div class="modal__body">{{body}}</div>
+        <div class="modal__body">
+            {{#if body}}{{body}}{{/if}}
+        </div>
     </div>
 </div>

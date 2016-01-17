@@ -1,5 +1,6 @@
 import './modal.less';
 import template from './modal.hbs';
+import login from './templates/modal__login.hbs';
 
 console.log('-- modal module --');
 
@@ -14,6 +15,9 @@ export default class Modal {
         $(modificator).find('.modal__close').click(function(){
           $(modificator).hide();
         });
+        if(modificator == ".modal_login") {
+          $(modificator).find('.modal__body').html(login(data));
+        }
       }
     });
   }
