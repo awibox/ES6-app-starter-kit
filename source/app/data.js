@@ -14,6 +14,12 @@ var data = {
       href: "#bamboo"
     }]
   },
+  modal: {
+    login: {
+      title: 'Авторизация',
+      body: 'Отсутствует в данном проект'
+    }
+  },
   news: {
     title: "News",
     items:  [{

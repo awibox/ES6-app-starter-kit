@@ -1,0 +1,52 @@
+.modal {
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1050;
+  background: rgba(0,0,0,0.5);
+  &__dialog {
+    width: 300px;
+    margin: 60px auto;
+    position: relative;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #999;
+    border-radius: 6px;
+    outline: 0;
+    box-shadow: 0 3px 9px rgba(0,0,0,.5);
+  }
+  &__header {
+    padding: 15px;
+    border-bottom: 1px solid #e5e5e5;
+  }
+  &__title {
+    margin: 0;
+    line-height: 1.42857143;
+  }
+  &__close {
+    float: right;
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    filter: alpha(opacity=20);
+    opacity: .2;
+    margin-top: -2px;
+    &:hover {
+      color: #000;
+      text-decoration: none;
+      cursor: pointer;
+      filter: alpha(opacity=50);
+      opacity: .5;
+    }
+  }
+  &__body {
+    position: relative;
+    padding: 15px;
+  }
+}
