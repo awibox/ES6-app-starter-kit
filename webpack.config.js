@@ -1,5 +1,6 @@
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var webpack = require('webpack');
+var NODE_ENV = process.env.NODE_ENV || 'development';
 
 var settings = {
     app: './app/app',
@@ -8,10 +9,8 @@ var settings = {
     bundleApp: 'js/main.js',
     bundleCSS: 'css/styles.css',
     chunks: 'js/chunks/[name].js',
-    publicPath: '/webpack/public/'
+    publicPath: NODE_ENV == 'development' ? '/public/' : '/webpack/public/'
 };
-
-var NODE_ENV = process.env.NODE_ENV || 'development';
 
 module.exports = {
     context: __dirname + settings.sourceDir,

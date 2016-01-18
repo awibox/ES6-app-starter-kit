@@ -6,13 +6,13 @@ var data = {
   menu: {
     items: [{
       text: "Webpack",
-      href: "#eggs"
+      href: "#webpack"
     }, {
       text: "Babel",
-      href: "#meat"
+      href: "#babel"
     }, {
       text: "LESS",
-      href: "#bamboo"
+      href: "#less"
     }]
   },
   modal: {
