@@ -1,7 +1,7 @@
-import './news.less';
-import template from './news.hbs';
+import './tech.less';
+import template from './tech.hbs';
 
-console.log('-- news module --');
+console.log('-- tech module --');
 
 export default class News {
   constructor(data, id, modificator) {
