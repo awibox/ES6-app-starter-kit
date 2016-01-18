@@ -1,4 +1,4 @@
-import './modal.less';
+import './modal.css';
 import template from './modal.hbs';
 import login from './templates/modal__login.hbs';
 

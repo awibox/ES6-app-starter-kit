@@ -1,5 +1,4 @@
 import './../less/build.less';
-import './../modules/modal/modal.less';
 import data from './data.js';
 
 import Header from './../modules/header/header';
@@ -15,18 +14,20 @@ new Footer(data.footer);
 new Menu(data.menu, '#header-wrap','.menu_black');
 new Promo(data.promo, '#content-wrap');
 new Tech(data.tech, '#content-wrap');
-console.log(data.tech);
+
 $(function(){
     $('.header__login').click(function(){
         require.ensure([], function(require) {
             let Modal = require('./../modules/modal/modal');
             new Modal(data.modal.login, 'body', ".modal_login")
         }, 'modal');
+        return false;
     });
     $('.btn_success').click(function() {
         require.ensure([], function (require) {
             let Modal = require('./../modules/modal/modal');
             new Modal(data.modal.test, 'body', ".modal_test")
         }, 'modal');
+        return false;
     });
 });

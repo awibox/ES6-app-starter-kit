@@ -8,7 +8,7 @@ var settings = {
     bundleApp: 'js/main.js',
     bundleCSS: 'css/styles.css',
     chunks: 'js/chunks/[name].js',
-    publicPath: '/bem-builder-webpack/public/'
+    publicPath: '/webpack/public/'
 };
 
 var NODE_ENV = process.env.NODE_ENV || 'development';
@@ -57,10 +57,7 @@ module.exports = {
             },
             {
                 test:   /\.(png|jpg|svg)$/,
-                loaders: [
-                    'url?name=img/[path][name].[ext]&limit=4096',
-                    'image-webpack?{progressive:true, optimizationLevel: 7, interlaced: false, pngquant:{quality: "65-90", speed: 4}}'
-                ]
+                loaders: NODE_ENV == 'development' ? ['url?name=img/[path][name].[ext]&limit=4096'] : ['url?name=img/[path][name].[ext]&limit=4096', 'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false']
             },
             {
                 test:   /\.(ttf|eot|woff|woff2)$/,
@@ -81,7 +78,6 @@ if (NODE_ENV == 'production') {
     module.exports.plugins.push(
         new webpack.optimize.UglifyJsPlugin({
             compress: {
-                // don't show unreachable variables etc
                 warnings:     false,
                 drop_console: true,
                 unsafe:       true
