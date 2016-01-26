@@ -36,17 +36,13 @@ module.exports = {
             {
                 test:   /\.css$/,
                 loader: ExtractTextPlugin.extract(
-                    'style',
-                    'css',
-                    'autoprefixer?browsers=last 15 versions'
+                    'style!css!autoprefixer?browsers=last 15 versions'
                 )
             },
             {
                 test: /\.less$/,
                 loader: ExtractTextPlugin.extract(
-                    'css?sourceMap!' +
-                    'autoprefixer?browsers=last 15 versions!' +
-                    'less?sourceMap'
+                    'css?sourceMap!autoprefixer?browsers=last 15 versions!less?sourceMap'
                 )
             },
             {
