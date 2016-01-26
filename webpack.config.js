@@ -40,6 +40,12 @@ module.exports = {
                 )
             },
             {
+                test:   /\.(sass|scss)$/,
+                loader: ExtractTextPlugin.extract(
+                    'css?sourceMap!autoprefixer?browsers=last 15 versions!sass?sourceMap'
+                )
+            },
+            {
                 test: /\.less$/,
                 loader: ExtractTextPlugin.extract(
                     'css?sourceMap!autoprefixer?browsers=last 15 versions!less?sourceMap'

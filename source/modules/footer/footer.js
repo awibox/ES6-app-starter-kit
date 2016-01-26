@@ -1,5 +1,5 @@
 import template from './footer.hbs';
-import './footer.less'
+import './footer.scss'
 
 console.log('-- footer module --');
 

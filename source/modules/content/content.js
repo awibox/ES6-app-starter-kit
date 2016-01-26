@@ -1,5 +1,5 @@
 import template from './content.hbs';
-import './content.less'
+import './content.scss'
 
 console.log('-- content module --');
 export default class Content {

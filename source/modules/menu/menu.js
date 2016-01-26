@@ -1,4 +1,4 @@
-import './menu.less';
+import './menu.scss';
 import template from './menu.hbs';
 
 console.log('-- menu module --');

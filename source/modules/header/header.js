@@ -1,5 +1,5 @@
 import template from './header.hbs';
-import './header.less'
+import './header.scss'
 
 console.log('-- header module --');
 

@@ -1,4 +1,4 @@
-import './../less/build.less';
+import './../sass/build.scss';
 import data from './data.js';
 
 import Header from './../modules/header/header';

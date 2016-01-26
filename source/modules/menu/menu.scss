@@ -23,10 +23,10 @@
     padding: 0 15px;
   }
   &_black {
-    .blackMenuClass;
+    @extend .blackMenuClass;
   }
   &_black-right {
     float: right;
-    .blackMenuClass;
+    @extend .blackMenuClass;
   }
 }

@@ -1,4 +1,4 @@
-import './tech.less';
+import './tech.scss';
 import template from './tech.hbs';
 
 console.log('-- tech module --');

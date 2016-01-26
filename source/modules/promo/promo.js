@@ -1,4 +1,4 @@
-import './promo.less';
+import './promo.scss';
 import template from './promo.hbs';
 
 console.log('-- promo module --');
