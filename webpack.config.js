@@ -4,19 +4,20 @@ var NODE_ENV = process.env.NODE_ENV || 'development';
 
 var settings = {
     app: './app/app',
-    sourceDir: '/source',
-    publicDir: '/public',
+    context: '/source',
+    path: '/public',
     bundleApp: 'js/main.js',
     bundleCSS: 'css/styles.css',
     chunks: 'js/chunks/[name].js',
-    publicPath: NODE_ENV == 'development' ? '/public/' : '/webpack/public/'
+    publicPath: NODE_ENV == 'development' ? '/' : '/webpack/public/',
+    contentBase: "./public"
 };
 
 module.exports = {
-    context: __dirname + settings.sourceDir,
+    context: __dirname + settings.context,
     entry: settings.app,
     output: {
-        path: __dirname + settings.publicDir,
+        path: __dirname + settings.path,
         publicPath: settings.publicPath,
         filename: settings.bundleApp,
         chunkFilename: settings.chunks
@@ -73,7 +74,10 @@ module.exports = {
             jQuery: 'jquery',
             'window.jQuery': 'jquery'
         })
-    ]
+    ],
+    devServer: {
+        contentBase: settings.contentBase
+    }
 };
 if (NODE_ENV == 'production') {
     module.exports.plugins.push(
