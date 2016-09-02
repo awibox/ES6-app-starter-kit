@@ -1,0 +1,7 @@
+.default {
+  &:after {
+    clear:both;
+    display:block;
+    content: ""
+  }
+}

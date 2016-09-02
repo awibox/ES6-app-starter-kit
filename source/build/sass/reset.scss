@@ -1,0 +1,71 @@
+* {margin: 0;padding: 0;}
+header, nav, section, article, aside, footer, figcaption, figure, details, hgroup {display: block;}
+audio,canvas,video {display: inline-block;}
+html {height: 100%;font-size: 100%;-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;}
+
+body {
+  font-family: $bodyFont;
+  font-size:$bodyFontSize;
+  line-height: $bodyFontLineHeight;
+  color: $bodyColor;
+  width: 100%;
+  height: 100%
+}
+
+a{color:$bodyLinkColor;outline:none;text-decoration:underline;}
+a:hover{color:$bodyLinkColorHover;text-decoration: none;}
+img {border:none;}
+ul, ol {margin:0;padding:0;}
+
+p {
+  margin: 0 0 10px;
+}
+
+input, textarea, select {font-family:$bodyFont;font-size:$bodyFontSize;color:$bodyColor;}
+input {vertical-align: middle;}
+
+.clear {clear: both;}
+.clearfix:after {display: block;content: "";clear: both;}
+
+h1 {
+  font-size:$bodyFontSize*2.4;
+  font-weight: normal;
+  height: $bodyFontSize*2.4;
+  line-height: $bodyFontSize*2.4;
+  padding-bottom:$defaultIndent/1.5;
+}
+h2 {
+  font-size: $bodyFontSize*2;
+  font-weight: normal;
+  height: $bodyFontSize*2;
+  line-height: $bodyFontSize*2;
+  padding-bottom:$defaultIndent/1.5;
+}
+h3 {
+  font-size: $bodyFontSize*1.75;
+  font-weight: normal;
+  height: $bodyFontSize*1.75;
+  line-height: $bodyFontSize*1.75;
+  padding-bottom:$defaultIndent/1.5;
+}
+h4 {
+  font-size: $bodyFontSize*1.4;
+  font-weight: normal;
+  height: $bodyFontSize*1.4;
+  line-height: $bodyFontSize*1.4;
+  padding-bottom:$defaultIndent/2;
+}
+h5 {
+  font-size: $bodyFontSize*1.3;
+  font-weight: normal;
+  height: $bodyFontSize*1.3;
+  line-height: $bodyFontSize*1.3;
+  padding-bottom:$defaultIndent/2;
+}
+h6 {
+  font-size: $bodyFontSize;
+  font-weight: bold;
+  height: $bodyFontSize;
+  line-height: $bodyFontSize;
+  padding-bottom:$defaultIndent/2;
+}

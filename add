@@ -1,23 +1,75 @@
 #!/bin/bash
 
-mkdir source/blocks/$1;
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[0;33m'
 
-for i in ${@:2}
-do
-    mkdir source/blocks/$1;
-    if [ $i == "js" ] || [ $i == "less" ];then
-        touch source/blocks/$1/$1.$i
-    fi
-done
+export=$(echo $2 | gsed 's/[a-z]*/\u&/g');
 
-if [ !$2 ];then
-    for i in js less
-    do
-        mkdir source/blocks/$1
-        if [ $i != "img" ];then
-            touch source/blocks/$1/$1.$i
+if [[ $1 == "module" ]]; then
+    if [ -z $2 ] ; then
+        echo -en "\n${RED}error:"
+                tput sgr0
+                echo -en " enter the ${YELLOW}name"
+                tput sgr0
+                echo -en " of module - './add module ${YELLOW}[value]"
+                tput sgr0
+                echo -en "'\n\n"
+    else
+        if ! [ -d source/modules/$2/ ];then
+            mkdir source/modules/$2
+            echo -en "\n${GREEN}Module '$2' created..."
+            tput sgr0
+        else
+            echo -en "\n${YELLOW}Module '$2' already exist"
+            tput sgr0
         fi
-    done
+        if ! [ -f source/modules/$2/$2.js ];then
+            cp source/build/module/default.js source/modules/$2
+            mv source/modules/$2/default.js source/modules/$2/$2.js
+            sed -i '' "s/module/$2/" source/modules/$2/$2.js
+            sed -i '' "s/Module/$export/" source/modules/$2/$2.js
+            echo -en "\n${GREEN}File '$2/$2.js' created"
+            tput sgr0
+        else
+            echo -en "\n${YELLOW}File '$2/$2.ts' already exist"
+            tput sgr0
+        fi
+        if ! [ -f source/modules/$2/$2.hbs ];then
+            cp source/build/module/default.hbs source/modules/$2
+            mv source/modules/$2/default.hbs source/modules/$2/$2.hbs
+            sed -i '' "s/default/$2/" source/modules/$2/$2.hbs
+            echo -en "\n${GREEN}File '$2/$2.hbs' created"
+            tput sgr0
+        else
+            echo -en "\n${YELLOW}File '$2/$2.html' already exist"
+            tput sgr0
+        fi
+        if ! [ -f source/modules/$2/$2.scss ];then
+            cp source/build/module/default.scss source/modules/$2
+            mv source/modules/$2/default.scss source/modules/$2/$2.scss
+            sed -i '' "s/default/$2/" source/modules/$2/$2.scss
+            echo -en "\n${GREEN}File '$2/$2.scss' created\n\n"
+            tput sgr0
+        else
+            echo -en "\n${YELLOW}File '$2/$2.scss' already exist\n\n"
+            tput sgr0
+        fi
+    fi
+else
+    if [ -z $1 ] ; then
+        echo -en ""
+    else
+        echo -en "\n${RED}error: "
+        tput sgr0
+        echo "'$1' is not a add command"
+    fi
+    echo -en "\nusage: ./add [command] [value]\n\n"
+    echo -en "commands:\n"
+    echo -en "   page          Create pages in source/app/pages\n"
+    echo -en "   module        Create module in source/modules\n\n"
+    echo -en "value:           Enter the name of page or module\n\n"
+    echo -en "example:         '${YELLOW}./add module search'\n\n"
+    echo -en ""
+    tput sgr0
 fi
-
-gulp

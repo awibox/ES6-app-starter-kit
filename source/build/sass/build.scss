@@ -1,0 +1,28 @@
+// Main
+$siteWidth:960px; // ширина сайта, если сайт резиновый то указывать в процентах
+$siteMinWidth:0;  // минимальная ширина сайта
+$siteMaxWidth:1920px; // максимальная ширина сайта
+
+// Fonts
+$bodyFont:Arial, Tahoma, Verdana, sans-serif; // название шрифта.
+$bodyFontSize:14px; // размер шрифта
+$bodyFontLineHeight:20px; // межстрочный интервал
+
+$arial: Arial, Tahoma, serif;
+$tahoma: Tahoma, serif;
+$roboto: "Roboto", serif;
+
+// Colors
+$bodyColor:#111; // цвет текста на сайте
+$bodyBackground:#f5f5f5; // цвет фона сайта
+$bodyLinkColor:#1270b3; // цвет ссылок
+$bodyLinkColorHover:#1370b3; // цвет ссылок при наведении
+
+$green:#77ce4e;
+$lightGreen:lighten(#98ff98, 10%);
+
+
+$defaultIndent: 15px;
+
+@import 'reset';
+@import 'styles';
