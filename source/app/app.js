@@ -1,4 +1,4 @@
-import './../sass/build.scss';
+import './../build/sass/build.scss';
 import data from './data.js';
 
 import Header from './../modules/header/header';
@@ -32,4 +32,4 @@ $(function(){
     });
 });
 
-import './../sass/retina.scss';
+import './../build/sass/retina.scss';
