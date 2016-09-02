@@ -64,12 +64,9 @@ else
         tput sgr0
         echo "'$1' is not a add command"
     fi
-    echo -en "\nusage: ./add [command] [value]\n\n"
-    echo -en "commands:\n"
-    echo -en "   page          Create pages in source/app/pages\n"
-    echo -en "   module        Create module in source/modules\n\n"
+    echo -en "\nusage: ./add [value]\n\n"
     echo -en "value:           Enter the name of page or module\n\n"
-    echo -en "example:         '${YELLOW}./add module search'\n\n"
+    echo -en "example:         '${YELLOW}./add search'\n\n"
     echo -en ""
     tput sgr0
 fi
