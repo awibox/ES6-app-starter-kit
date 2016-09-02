@@ -4,10 +4,10 @@ RED='\033[0;31m'
 GREEN='\033[0;32m'
 YELLOW='\033[0;33m'
 
-export=$(echo $2 | gsed 's/[a-z]*/\u&/g');
+export=$(echo $1 | gsed 's/[a-z]*/\u&/g');
 
-if [[ $1 == "module" ]]; then
-    if [ -z $2 ] ; then
+if [[ $1 ]]; then
+    if [ -z $1 ] ; then
         echo -en "\n${RED}error:"
                 tput sgr0
                 echo -en " enter the ${YELLOW}name"
@@ -16,43 +16,43 @@ if [[ $1 == "module" ]]; then
                 tput sgr0
                 echo -en "'\n\n"
     else
-        if ! [ -d source/modules/$2/ ];then
-            mkdir source/modules/$2
-            echo -en "\n${GREEN}Module '$2' created..."
+        if ! [ -d source/modules/$1/ ];then
+            mkdir source/modules/$1
+            echo -en "\n${GREEN}Module '$1' created..."
             tput sgr0
         else
-            echo -en "\n${YELLOW}Module '$2' already exist"
+            echo -en "\n${YELLOW}Module '$1' already exist"
             tput sgr0
         fi
-        if ! [ -f source/modules/$2/$2.js ];then
-            cp source/build/module/default.js source/modules/$2
-            mv source/modules/$2/default.js source/modules/$2/$2.js
-            sed -i '' "s/module/$2/" source/modules/$2/$2.js
-            sed -i '' "s/Module/$export/" source/modules/$2/$2.js
-            echo -en "\n${GREEN}File '$2/$2.js' created"
+        if ! [ -f source/modules/$1/$1.js ];then
+            cp source/build/module/default.js source/modules/$1
+            mv source/modules/$1/default.js source/modules/$1/$1.js
+            sed -i '' "s/module/$1/" source/modules/$1/$1.js
+            sed -i '' "s/Module/$export/" source/modules/$1/$1.js
+            echo -en "\n${GREEN}File '$1/$1.js' created"
             tput sgr0
         else
-            echo -en "\n${YELLOW}File '$2/$2.ts' already exist"
+            echo -en "\n${YELLOW}File '$1/$1.ts' already exist"
             tput sgr0
         fi
-        if ! [ -f source/modules/$2/$2.hbs ];then
-            cp source/build/module/default.hbs source/modules/$2
-            mv source/modules/$2/default.hbs source/modules/$2/$2.hbs
-            sed -i '' "s/default/$2/" source/modules/$2/$2.hbs
-            echo -en "\n${GREEN}File '$2/$2.hbs' created"
+        if ! [ -f source/modules/$1/$1.hbs ];then
+            cp source/build/module/default.hbs source/modules/$1
+            mv source/modules/$1/default.hbs source/modules/$1/$1.hbs
+            sed -i '' "s/default/$1/" source/modules/$1/$1.hbs
+            echo -en "\n${GREEN}File '$1/$1.hbs' created"
             tput sgr0
         else
-            echo -en "\n${YELLOW}File '$2/$2.html' already exist"
+            echo -en "\n${YELLOW}File '$1/$1.html' already exist"
             tput sgr0
         fi
-        if ! [ -f source/modules/$2/$2.scss ];then
-            cp source/build/module/default.scss source/modules/$2
-            mv source/modules/$2/default.scss source/modules/$2/$2.scss
-            sed -i '' "s/default/$2/" source/modules/$2/$2.scss
-            echo -en "\n${GREEN}File '$2/$2.scss' created\n\n"
+        if ! [ -f source/modules/$1/$1.scss ];then
+            cp source/build/module/default.scss source/modules/$1
+            mv source/modules/$1/default.scss source/modules/$1/$1.scss
+            sed -i '' "s/default/$1/" source/modules/$1/$1.scss
+            echo -en "\n${GREEN}File '$1/$1.scss' created\n\n"
             tput sgr0
         else
-            echo -en "\n${YELLOW}File '$2/$2.scss' already exist\n\n"
+            echo -en "\n${YELLOW}File '$1/$1.scss' already exist\n\n"
             tput sgr0
         fi
     fi
