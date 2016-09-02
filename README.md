@@ -1,3 +1,15 @@
+Клонируем репозиторий:
+==================
+Вместо `my-project` указываем название вашего проекта
+```
+git clone git@github.com:awibox/bem-builder.git my-project
+```
+
+Пустая заготовка
+```
+git clone -b clean git@github.com:awibox/bem-builder.git my-project
+```
+
 Установка:
 ==================
 
