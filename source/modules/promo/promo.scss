@@ -3,16 +3,15 @@
   padding:46px 0;
   margin-bottom: 30px;
   &__title {
-    font-size: 63px;
-    font-family: 'Roboto';
+    font-size: 62px;
+    line-height: 70px;
     font-weight: 100;
   }
   &__text {
     padding: 20px;
-    font-size: 21px;
+    font-size: 20px;
     color: #333;
     font-weight: 100;
-    line-height: 1.4;
-    font-family: 'Roboto';
+    line-height:30px;
   }
 }

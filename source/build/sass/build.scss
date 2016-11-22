@@ -1,28 +1,32 @@
-// Main
+// Settings
 $siteWidth:960px; // ширина сайта, если сайт резиновый то указывать в процентах
-$siteMinWidth:0;  // минимальная ширина сайта
-$siteMaxWidth:1920px; // максимальная ширина сайта
-
-// Fonts
-$bodyFont:Arial, Tahoma, Verdana, sans-serif; // название шрифта.
+$bodyFont:14px/18px Roboto, Arial, Tahoma, Verdana, sans-serif; // название шрифта.
 $bodyFontSize:14px; // размер шрифта
-$bodyFontLineHeight:20px; // межстрочный интервал
 
-$arial: Arial, Tahoma, serif;
-$tahoma: Tahoma, serif;
-$roboto: "Roboto", serif;
+* {margin: 0;padding: 0;}
+header, nav, section, article, aside, footer, figcaption, figure, details, hgroup {display: block;}
+audio,canvas,video {display: inline-block;}
+html {height: 100%;font-size: 100%;-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;}
 
-// Colors
-$bodyColor:#111; // цвет текста на сайте
-$bodyBackground:#f5f5f5; // цвет фона сайта
-$bodyLinkColor:#1270b3; // цвет ссылок
-$bodyLinkColorHover:#1370b3; // цвет ссылок при наведении
+body {
+  font: $bodyFont;
+  width: 100%;
+  height: 100%
+}
 
-$green:#77ce4e;
-$lightGreen:lighten(#98ff98, 10%);
+a{outline:none;text-decoration:underline;}
+a:hover{text-decoration: none;}
+img {border:none;}
+ul, ol {margin:0;padding:0;}
 
+p {
+  margin: 0 0 10px;
+}
 
-$defaultIndent: 15px;
+input {vertical-align: middle;}
 
-@import 'reset';
+.clear {clear: both;}
+.clearfix:after {display: block;content: "";clear: both;}
+
 @import 'styles';
+@import 'retina';

@@ -3,8 +3,6 @@
 }
 .wrapper {
   width: $siteWidth;
-  min-width: $siteMinWidth;
-  max-width: $siteMaxWidth;
   margin: 0 auto;
   &:after {
     display: block;
