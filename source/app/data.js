@@ -1,7 +1,7 @@
 var data = {
   header: {
-    name: "Bem builder",
-    login: "Авторизация"
+    name: "BEM-builder",
+    login: "Login"
   },
   menu: {
     items: [{
@@ -17,15 +17,15 @@ var data = {
   },
   modal: {
     login: {
-      title: 'Авторизация',
+      title: 'Sign in',
       label: {
-        email: 'Адрес e-mail',
-        pass: 'Пароль'
+        email: 'E-mail',
+        pass: 'Password'
       }
     },
     test: {
-      title: "Заголовок",
-      body: "Текст"
+      title: "Title",
+      body: "Popup"
     }
   },
   promo: {
