@@ -4,6 +4,9 @@ only screen and (-o-min-device-pixel-ratio: 3/2),
 only screen and (min-resolution: 1.5dppx),
 only screen and (min-resolution: 144dpi)  {
   .page {
-    background: #fefefe;
+    .promo__logo {
+      background-image: url(../img/promo__logo@2x.png);
+      background-size: cover;
+    }
   }
 }

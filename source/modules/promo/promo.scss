@@ -2,10 +2,25 @@
   text-align: center;
   padding:46px 0;
   margin-bottom: 30px;
+  &__logo {
+    background: url(img/promo__logo.png) no-repeat;
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    background-size: cover;
+    vertical-align: top;
+    margin-right:20px;
+  }
   &__title {
-    font-size: 62px;
-    line-height: 70px;
-    font-weight: 100;
+    font-size: 0;
+    &-text {
+      display: inline-block;
+      line-height: 100px;
+      height: 100px;
+      font-size: 62px;
+      font-weight: 100;
+      vertical-align: top;
+    }
   }
   &__text {
     padding: 20px;
