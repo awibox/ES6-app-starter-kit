@@ -29,7 +29,8 @@ var data = {
     }
   },
   promo: {
-    name: "Bem-builder",
+    name: "ES6-app-starter-kit ",
+    version: "version 3.0 Beta",
     text: "A module bundler for javascript application: BEM + Webpack + ES6 + HBS + SASS",
     link: "Download",
     href: "#"
