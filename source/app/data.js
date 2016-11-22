@@ -30,9 +30,8 @@ var data = {
   },
   promo: {
     name: "Bem-builder",
-    text: "Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor " +
-    "mauris condimentum nibh, ut fermentum massa justo sit amet.",
-    link: "Попробывать",
+    text: "A module bundler for javascript application: BEM + Webpack + ES6 + HBS + SASS",
+    link: "Download",
     href: "#"
   }
 };
